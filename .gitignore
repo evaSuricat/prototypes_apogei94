@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# CSS compilé (optionnel - à inclure si tu veux versionner le CSS)
+# css/main.css
+# css/main.css.map
+
+# Python scripts temporaires
+*.py
+
+# Logs
+*.log
+npm-debug.log*
+
+# Backup folder (optionnel)
+# qwen_apogei_v1-0_pour_backup/
+
+# Documentation temporaire
+AUDIT_REPORT.txt

@@ -1,0 +1,150 @@
+// --------------------------------------------------------------------------
+// DESIGN SYSTEM TOKENS (Mapped from tokens.json & theme.json)
+// --------------------------------------------------------------------------
+
+:root {
+  /* Colors - From theme.json palette */
+  --color-bg-default: #f9f9f9;
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle: #f3f3f3;
+  --color-bg-muted: #e5e5e5;
+  --color-bg-inverse: #111111;
+  --color-bg-brand: #00619b;
+  --color-bg-brand-subtle: #e6f0f7;
+  --color-bg-brand-muted: #cce1ef;
+  --color-bg-accent-green: #76b82a;
+  --color-bg-accent-green-light: #c5d97f;
+  --color-bg-accent-green-subtle: #f0f7e8;
+  --color-bg-accent-orange: #ff841f;
+  --color-bg-accent-orange-subtle: #fff5eb;
+  --color-bg-accent-magenta: #cc209c;
+  --color-bg-accent-magenta-subtle: #fce8f6;
+  --color-bg-accent-cyan: #01c8d8;
+  --color-bg-accent-cyan-subtle: #e6fafb;
+  --color-bg-accent-yellow: #ffc52f;
+  --color-bg-accent-yellow-subtle: #fffaeb;
+  --color-bg-success: #76b82a;
+  --color-bg-success-subtle: #f0f7e8;
+  --color-bg-warning: #ff841f;
+  --color-bg-warning-subtle: #fff5eb;
+  --color-bg-error: #ef4444;
+  --color-bg-error-subtle: #fef2f2;
+  --color-bg-info: #01c8d8;
+  --color-bg-info-subtle: #e6fafb;
+
+  --color-text-default: #111111;
+  --color-text-secondary: #636363;
+  --color-text-muted: #a4a4a4;
+  --color-text-inverse: #ffffff;
+  --color-text-brand: #00619b;
+  --color-text-brand-hover: #00517f;
+  --color-text-success: #5f9622;
+  --color-text-warning: #cc6a19;
+  --color-text-error: #dc2626;
+  --color-text-info: #01a0ad;
+
+  --color-border-default: #e5e5e5;
+  --color-border-subtle: #f3f3f3;
+  --color-border-strong: #d4d4d4;
+  --color-border-muted: #a4a4a4;
+  --color-border-focus: #00619b;
+  --color-border-brand: #00619b;
+  --color-border-brand-subtle: #99c3df;
+  --color-border-error: #ef4444;
+  --color-border-success: #76b82a;
+
+  --color-interactive: #00619b;
+  --color-interactive-hover: #00517f;
+  --color-interactive-active: #004063;
+
+  /* Typography - From tokens.json semantic.font */
+  --font-family: 'Aptos', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-caption-sm: 0.625rem;
+  --font-size-caption: 0.75rem;
+  --font-size-body-sm: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-body-lg: 1.125rem;
+  --font-size-body-md: 1.125rem;
+  --font-size-button-xl: 1.5rem;
+  --font-size-h6: 0.875rem;
+  --font-size-h5: 1rem;
+  --font-size-h4: 1.25rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h1: 2.5rem;
+  --font-size-display-sm: 3rem;
+  --font-size-display: 3.75rem;
+  --font-size-display-lg: 4.5rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-body: 1.55;
+  --line-height-body-tight: 1.4;
+  --line-height-heading: 1.2;
+  --line-height-display: 1.15;
+
+  --letter-spacing-normal: 0;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-wide: 0.025em;
+
+  /* Spacing - From tokens.json semantic.space */
+  --space-none: 0;
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+  --space-6xl: 192px;
+
+  /* Radius - From tokens.json semantic.radius */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-lg-plus: 10px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows - From tokens.json semantic.shadow */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-focus: 0 0 0 3px rgba(0, 97, 155, 0.4);
+  --shadow-focus-error: 0 0 0 3px rgba(239, 68, 68, 0.4);
+  --shadow-focus-success: 0 0 0 3px rgba(118, 184, 42, 0.4);
+
+  /* Duration & Easing */
+  --duration-instant: 0ms;
+  --duration-fast: 100ms;
+  --duration-normal: 150ms;
+  --duration-slow: 250ms;
+  --duration-slower: 350ms;
+  --easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-enter: cubic-bezier(0, 0, 0.2, 1);
+  --easing-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Layout */
+  --container-content: 620px;
+  --container-wide: 1280px;
+
+  /* Z-index */
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-overlay: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+}

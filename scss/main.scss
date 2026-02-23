@@ -1,0 +1,29 @@
+// ==========================================================================
+// MAIN SCSS - Fichier d'assemblage pour Apogei 94
+// ==========================================================================
+// Import order matters: tokens → mixins → base → layout → components → pages
+// ==========================================================================
+
+// 1. Design System Tokens (variables CSS)
+@import 'tokens';
+
+// 2. Mixins (responsive, focus-ring, card-elevation, button-variant...)
+@import 'mixins';
+
+// 3. Base Styles (reset, typo, utilitaires globaux)
+@import 'base';
+
+// 4. Layout (header, footer, breadcrumb, structures de pages)
+@import 'layout';
+
+// 5. Components (boutons, cards, badges, formulaires, sections)
+@import 'components';
+
+// 6. Page-specific styles
+@import '_pages/don';
+@import '_pages/etablissements';
+@import '_pages/carrieres';
+@import '_pages/home';
+@import '_pages/detail';
+@import '_pages/postuler';
+@import '_pages/offre-detail';

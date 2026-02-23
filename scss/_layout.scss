@@ -1,0 +1,206 @@
+// --------------------------------------------------------------------------
+// LAYOUT - Header, Footer, Breadcrumb, structures de pages
+// --------------------------------------------------------------------------
+
+/* Header */
+.header {
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-default);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-brand);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+  
+  &:hover {
+    color: var(--color-text-brand);
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-xl);
+  list-style: none;
+  
+  a {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-default);
+    padding: var(--space-xs) 0;
+    position: relative;
+    
+    &:hover,
+    &.active {
+      color: var(--color-text-brand);
+    }
+    
+    &.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--color-border-brand);
+      border-radius: var(--radius-full);
+    }
+  }
+  
+  @include responsive(tablet) {
+    display: none;
+  }
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--space-sm);
+  
+  @include responsive(mobile) {
+    .btn-outline {
+      display: none;
+    }
+  }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: var(--space-lg) 0;
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  list-style: none;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  flex-wrap: wrap;
+  
+  li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  a {
+    color: var(--color-text-brand);
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border-default);
+  padding: var(--space-3xl) 0;
+  margin-top: var(--space-3xl);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  
+  @include responsive(tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  @include responsive(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-col {
+  h4 {
+    font-size: var(--font-size-body);
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-brand);
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  li {
+    margin-bottom: var(--space-sm);
+  }
+  
+  a {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body-sm);
+    
+    &:hover {
+      color: var(--color-text-brand);
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Page Hero (generic) */
+.page-hero {
+  background-color: var(--color-bg-surface);
+  padding: var(--space-3xl) 0;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.page-hero-content {
+  max-width: var(--container-content);
+}
+
+.page-hero-title {
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--space-lg);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.page-hero-desc {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: var(--line-height-body);
+}
+
+/* ==========================================================================
+   FOOTER - Inline styles replacement
+   ========================================================================== */
+
+.footer-logo {
+  margin-bottom: var(--space-md);
+}
+
+.footer-description {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body-sm);
+}
+
+.footer-copyright {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border-default);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-body-sm);
+}

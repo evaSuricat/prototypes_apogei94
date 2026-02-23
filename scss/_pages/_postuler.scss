@@ -1,0 +1,361 @@
+// --------------------------------------------------------------------------
+// PAGE SPECIFIC - postuler.html (Formulaire de candidature)
+// Styles pour la page de candidature
+// --------------------------------------------------------------------------
+
+/* ==========================================================================
+   FORM PAGE
+   ========================================================================== */
+
+.form-page {
+  padding: var(--space-3xl) 0;
+}
+
+.form-container {
+  max-width: var(--container-content);
+  margin: 0 auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  
+  h1 {
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--space-md);
+  }
+  
+  p {
+    font-size: var(--font-size-body-lg);
+    color: var(--color-text-secondary);
+  }
+}
+
+.form-summary {
+  background-color: var(--color-bg-brand-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.form-summary-icon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-bg-brand);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse);
+  flex-shrink: 0;
+}
+
+.form-summary-content {
+  h3 {
+    font-size: var(--font-size-h4);
+    margin-bottom: var(--space-2xs);
+  }
+  
+  p {
+    font-size: var(--font-size-body-sm);
+    color: var(--color-text-secondary);
+  }
+}
+
+/* ==========================================================================
+   PROGRESS STEPS
+   ========================================================================== */
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-border-default);
+    z-index: 0;
+  }
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.progress-step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-bg-surface);
+  border: 2px solid var(--color-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  transition: all var(--duration-normal) var(--easing-default);
+}
+
+.progress-step.active .progress-step-number {
+  border-color: var(--color-border-brand);
+  background-color: var(--color-bg-brand);
+  color: var(--color-text-inverse);
+}
+
+.progress-step.completed .progress-step-number {
+  border-color: var(--color-border-success);
+  background-color: var(--color-bg-success);
+  color: var(--color-text-inverse);
+}
+
+.progress-step-label {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.progress-step.active .progress-step-label {
+  color: var(--color-text-brand);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ==========================================================================
+   FORM SECTIONS
+   ========================================================================== */
+
+.form-section {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  
+  /* Visible by default - JS will hide non-active steps */
+  display: block;
+  
+  &.hidden {
+    display: none;
+  }
+}
+
+.form-section-title {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  
+  svg {
+    color: var(--color-text-brand);
+    flex-shrink: 0;
+  }
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-input,
+.form-textarea,
+.form-select,
+.form-file {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-body-sm);
+  font-family: var(--font-family);
+  min-height: 44px;
+  background-color: var(--color-bg-surface);
+  transition: border-color var(--duration-normal) var(--easing-default), box-shadow var(--duration-normal) var(--easing-default);
+  
+  &:focus {
+    border-color: var(--color-border-focus);
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
+  
+  &.error {
+    border-color: var(--color-border-error);
+    box-shadow: var(--shadow-focus-error);
+  }
+  
+  &.success {
+    border-color: var(--color-border-success);
+    box-shadow: var(--shadow-focus-success);
+  }
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: var(--font-family);
+}
+
+.form-help {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-muted);
+}
+
+.form-error {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-error);
+  display: none;
+  
+  &.visible {
+    display: block;
+  }
+}
+
+.form-file-wrapper {
+  border: 2px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: all var(--duration-normal) var(--easing-default);
+  
+  &:hover {
+    border-color: var(--color-border-brand);
+    background-color: var(--color-bg-brand-subtle);
+  }
+  
+  svg {
+    width: 48px;
+    height: 48px;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+  }
+  
+  p {
+    font-size: var(--font-size-body-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .file-types {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+  }
+}
+
+/* ==========================================================================
+   FORM ACTIONS
+   ========================================================================== */
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border-subtle);
+  
+  .btn {
+    min-width: 160px;
+  }
+}
+
+/* ==========================================================================
+   SUCCESS MESSAGE
+   ========================================================================== */
+
+.success-message {
+  background-color: var(--color-bg-success-subtle);
+  border: 1px solid var(--color-border-success);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  text-align: center;
+  display: none;
+  
+  &.visible {
+    display: block;
+  }
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-lg);
+  background-color: var(--color-bg-success);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse);
+}
+
+.success-message h2 {
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-success);
+}
+
+.success-message p {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@include responsive(mobile) {
+  :root {
+    --font-size-h1: 2rem;
+    --space-3xl: 2rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .progress-steps {
+    flex-direction: column;
+    gap: var(--space-md);
+    
+    &::before {
+      display: none;
+    }
+  }
+  
+  .progress-step {
+    flex-direction: row;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+  
+  .form-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+}

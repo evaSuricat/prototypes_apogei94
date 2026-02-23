@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Établissements & Dispositifs - Apogei 94</title>
+    <meta name="description" content="Trouvez l'établissement ou le dispositif d'accompagnement adapté dans le Val-de-Marne">
+    <!-- Preload CSS critique -->
+    <link rel="preload" href="css/main.css" as="style">
+    <!-- Styles - CSS compilé depuis scss/main.scss -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Leaflet CSS (pour la carte OpenStreetMap) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+</head>
+<body>
+
+    <!-- Skip-link pour accessibilité -->
+    <a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
+
+<!-- Header -->
+<header class="header">
+    <div class="container header-content">
+        <a href="index.html" class="logo" aria-label="Apogei 94 - Accueil">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="16" cy="16" r="16" fill="#00619b"/>
+                <path d="M16 8L24 24H8L16 8Z" fill="white"/>
+            </svg>
+            Apogei 94
+        </a>
+        <nav aria-label="Navigation principale">
+            <ul class="nav-links">
+                <li><a href="index.html">Nos missions</a></li>
+                <li><a href="etablissements.html" class="active" aria-current="page">Établissements</a></li>
+                <li><a href="carrieres.html">Carrières</a></li>
+                <li><a href="soutenir.html">Soutenir</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-outline">Contact</a>
+            <a href="don.html" class="btn btn-primary">Faire un don</a>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+        <ol class="breadcrumb-list">
+            <li><a href="index.html">Accueil</a></li>
+            <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 12L10 8L6 4" stroke="#636363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </li>
+            <li aria-current="page">Nos établissements & dispositifs</li>
+        </ol>
+    </div>
+</nav>
+
+<main id="main-content">
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title">
+                    <span class="page-hero-title-bg">Trouvez </span>
+                    <span class="page-hero-title-bg">l'accompagnement</span>
+                     <span class="page-hero-title-bg">adapté</span>
+                </h1>
+                <p class="page-hero-desc">
+                    Parcourez nos 28 établissements et dispositifs dans le Val-de-Marne.
+                    Filtrez par pôle, type, localisation ou âge pour trouver la structure
+                    qui correspond à vos besoins.
+                </p>
+
+                <!-- Type Toggle: Établissements / Dispositifs / Tous -->
+                <div class="type-toggle" role="tablist" aria-label="Type de structure">
+                    <button class="type-toggle-btn active" role="tab" aria-selected="true" data-type="all" id="tab-all">
+                        Tous
+                    </button>
+                    <button class="type-toggle-btn" role="tab" aria-selected="false" data-type="etablissement" id="tab-etablissement">
+                        Établissements
+                    </button>
+                    <button class="type-toggle-btn" role="tab" aria-selected="false" data-type="dispositif" id="tab-dispositif">
+                        Dispositifs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="container">
+            <div class="filter-container">
+                <!-- Search -->
+                <div class="search-wrapper">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M14 14L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <label for="search" class="sr-only">Rechercher un établissement ou dispositif</label>
+                    <input type="search" id="search" class="search-input" placeholder="Rechercher par nom, ville, service..." autocomplete="off">
+                </div>
+
+                <!-- Pole Filter -->
+                <div>
+                    <label for="pole" class="sr-only">Filtrer par pôle</label>
+                    <select id="pole" class="filter-select" aria-label="Pôle d'accompagnement">
+                        <option value="">Tous les pôles</option>
+                        <option value="education">Éducation, apprentissage & loisirs</option>
+                        <option value="medicalise">Établissements et services médicalisés</option>
+                        <option value="habitat">Habitat & vie sociale</option>
+                        <option value="professionnelle">Vie professionnelle et citoyenne</option>
+                        <option value="protection">Protection juridique des majeurs</option>
+                    </select>
+                </div>
+
+                <!-- Location Filter -->
+                <div>
+                    <label for="location" class="sr-only">Filtrer par ville</label>
+                    <select id="location" class="filter-select" aria-label="Ville">
+                        <option value="">Toutes les villes</option>
+                        <option value="creteil">Créteil</option>
+                        <option value="saint-maur">Saint-Maur-des-Fossés</option>
+                        <option value="vitry">Vitry-sur-Seine</option>
+                        <option value="champigny">Champigny-sur-Marne</option>
+                        <option value="ivry">Ivry-sur-Seine</option>
+                        <option value="bonneuil">Bonneuil-sur-Marne</option>
+                        <option value="le-perreux">Le Perreux-sur-Marne</option>
+                        <option value="nogent">Nogent-sur-Marne</option>
+                    </select>
+                </div>
+
+                <!-- Age Group Filter -->
+                <div>
+                    <label for="age" class="sr-only">Filtrer par âge</label>
+                    <select id="age" class="filter-select" aria-label="Tranche d'âge">
+                        <option value="">Tous âges</option>
+                        <option value="enfants">Enfants (0-12 ans)</option>
+                        <option value="ados">Adolescents (12-18 ans)</option>
+                        <option value="adultes">Adultes (18+ ans)</option>
+                    </select>
+                </div>
+
+                <!-- View Toggle -->
+                <div class="view-toggle" role="tablist" aria-label="Mode d'affichage">
+                    <button class="view-toggle-btn active" role="tab" aria-selected="true" aria-controls="grid-view" id="view-grid" data-view="grid">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="2" y="2" width="5" height="5" rx="1" fill="currentColor"/>
+                            <rect x="9" y="2" width="5" height="5" rx="1" fill="currentColor"/>
+                            <rect x="2" y="9" width="5" height="5" rx="1" fill="currentColor"/>
+                            <rect x="9" y="9" width="5" height="5" rx="1" fill="currentColor"/>
+                        </svg>
+                        Liste
+                    </button>
+                    <button class="view-toggle-btn" role="tab" aria-selected="false" aria-controls="map-view" id="view-map" data-view="map">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8 4V8L10.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        Carte
+                    </button>
+                </div>
+
+                <span class="results-count" id="results-count" aria-live="polite">28 résultats</span>
+                <button class="clear-filters" id="clear-filters" hidden>Réinitialiser les filtres</button>
+            </div>
+
+            <!-- Active Filters Chips -->
+            <div class="filter-chips" id="active-filters" aria-live="polite">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="results-header">
+                <h2 class="results-title" id="results-title">Tous les établissements et dispositifs</h2>
+                <div>
+                    <label for="sort" class="sr-only">Trier les résultats</label>
+                    <select id="sort" class="sort-select" aria-label="Trier par">
+                        <option value="relevance">Pertinence</option>
+                        <option value="name-asc">Nom (A-Z)</option>
+                        <option value="name-desc">Nom (Z-A)</option>
+                        <option value="location">Ville (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid View -->
+            <div id="grid-view" class="results-grid" role="list" aria-label="Résultats de recherche">
+                <!-- Results dynamically populated by JavaScript -->
+            </div>
+
+            <!-- Map View -->
+            <div id="map-view" class="map-view" role="region" aria-label="Carte des établissements" hidden>
+                <div class="map-placeholder">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="40" cy="40" r="35" stroke="currentColor" stroke-width="2"/>
+                        <path d="M40 15C28 15 20 25 20 35C20 48 40 65 40 65C40 65 60 48 60 35C60 25 52 15 40 15Z" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="40" cy="35" r="8" fill="currentColor"/>
+                    </svg>
+                    <p><strong>Carte interactive</strong></p>
+                    <p style="font-size: var(--font-size-body-sm); opacity: 0.9;">Intégration OpenStreetMap en cours de développement</p>
+                    <p style="font-size: var(--font-size-caption); opacity: 0.7;">28 marqueurs positionnables</p>
+                </div>
+                <!-- Map markers would be dynamically positioned here -->
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-color etablissement"></div>
+                        <span>Établissement</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color dispositif"></div>
+                        <span>Dispositif</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (hidden by default) -->
+            <div id="empty-state" class="empty-state" hidden>
+                <svg class="empty-state-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+                    <path d="M30 40L38 48L50 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3 class="empty-state-title">Aucun résultat trouvé</h3>
+                <p class="empty-state-text">
+                    Essayez de modifier vos critères de recherche ou de réinitialiser les filtres
+                    pour voir tous les établissements et dispositifs.
+                </p>
+                <button class="btn btn-outline" id="reset-from-empty">Réinitialiser les filtres</button>
+            </div>
+
+            <!-- Loading State (hidden by default) -->
+            <div id="loading" class="loading" hidden>
+                <div class="spinner" role="status" aria-label="Chargement des résultats"></div>
+                <span class="sr-only">Chargement...</span>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="pagination" id="pagination" aria-label="Pagination des résultats" hidden>
+                <button class="pagination-btn" id="prev-page" aria-label="Page précédente" disabled>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <!-- Page numbers dynamically generated -->
+                <button class="pagination-btn" id="next-page" aria-label="Page suivante">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container">
+        <div class="cta-section">
+            <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+            <p>
+                Notre équipe est à votre écoute pour vous orienter vers la solution
+                la plus adaptée à votre situation. N'hésitez pas à nous contacter.
+            </p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-white btn-lg">Prendre rendez-vous →</a>
+                <a href="telecharger-guide.pdf" class="btn btn-outline-white btn-lg">Télécharger le guide</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="logo footer-logo">Apogei 94</a>
+            <p class="footer-description">
+                Association reconnue d'utilité publique.<br>
+                Accompagner chaque parcours de vie.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>Explorer</h4>
+            <ul>
+                <li><a href="index.html">Nos missions</a></li>
+                <li><a href="etablissements.html">Établissements</a></li>
+                <li><a href="gouvernance.html">Gouvernance</a></li>
+                <li><a href="rapports.html">Rapports</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Agir</h4>
+            <ul>
+                <li><a href="don.html">Faire un don</a></li>
+                <li><a href="benevolat.html">Devenir bénévole</a></li>
+                <li><a href="carrieres.html">Recrutement</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Légal</h4>
+            <ul>
+                <li><a href="mentions-legales.html">Mentions légales</a></li>
+                <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                <li><a href="accessibilite.html">Accessibilité</a></li>
+                <li><a href="cookies.html">Cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-copyright">
+        &copy; 2025 Apogei 94. Tous droits réservés. Design System v2.0.
+    </div>
+</footer>
+
+<!-- Leaflet JS (pour la carte OpenStreetMap) - DOIT ÊTRE AVANT LE MODULE -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
+<!-- JavaScript - Modules ES6 -->
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

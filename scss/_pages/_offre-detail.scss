@@ -1,0 +1,301 @@
+// --------------------------------------------------------------------------
+// PAGE SPECIFIC - offre-detail.html (Détail offre d'emploi)
+// Styles pour la page de détail d'une offre
+// --------------------------------------------------------------------------
+
+/* ==========================================================================
+   JOB HERO
+   ========================================================================== */
+
+.job-hero {
+  background: linear-gradient(135deg, var(--color-bg-brand) 0%, var(--color-bg-accent-cyan) 100%);
+  color: var(--color-text-inverse);
+  padding: var(--space-3xl) 0;
+}
+
+.job-hero-content {
+  max-width: var(--container-content);
+}
+
+.job-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.job-hero-title {
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-heading);
+}
+
+.job-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  font-size: var(--font-size-body-lg);
+  opacity: 0.95;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.job-hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   JOB CONTENT
+   ========================================================================== */
+
+.job-content {
+  padding: var(--space-3xl) 0;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-3xl);
+}
+
+.job-main {
+  min-width: 0;
+}
+
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+.job-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.sidebar-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.sidebar-card-title {
+  font-size: var(--font-size-h4);
+  margin-bottom: var(--space-md);
+}
+
+.sidebar-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sidebar-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.sidebar-info-label {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: var(--space-2xs);
+}
+
+.sidebar-info-value {
+  font-size: var(--font-size-body);
+  color: var(--color-text-default);
+  font-weight: var(--font-weight-medium);
+}
+
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.share-buttons {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.share-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--easing-default);
+  
+  &:hover {
+    border-color: var(--color-border-brand);
+    color: var(--color-text-brand);
+    background-color: var(--color-bg-brand-subtle);
+  }
+}
+
+/* ==========================================================================
+   COMPANY INFO
+   ========================================================================== */
+
+.company-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-bg-brand-subtle);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-lg);
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-bg-brand);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse);
+  flex-shrink: 0;
+}
+
+.company-name {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-brand);
+}
+
+.company-link {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-brand);
+}
+
+/* ==========================================================================
+   RELATED JOBS
+   ========================================================================== */
+
+.related-jobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.related-job-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: all var(--duration-slow) var(--easing-default);
+  
+  &:hover {
+    border-color: var(--color-border-brand);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+}
+
+.related-job-title {
+  font-size: var(--font-size-h4);
+  margin-bottom: var(--space-xs);
+  
+  a {
+    color: var(--color-text-default);
+    
+    &:hover {
+      color: var(--color-text-brand);
+    }
+  }
+}
+
+.related-job-meta {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.related-job-tags {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.job-tag {
+  padding: var(--space-2xs) var(--space-xs);
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@include responsive(tablet) {
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .job-sidebar {
+    position: static;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@include responsive(mobile) {
+  :root {
+    --font-size-h1: 2rem;
+    --space-3xl: 2rem;
+  }
+  
+  .job-hero-actions {
+    flex-direction: column;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+  
+  .job-details-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-actions .btn-outline {
+    display: none;
+  }
+  
+  .sidebar-actions {
+    flex-direction: column;
+  }
+}
