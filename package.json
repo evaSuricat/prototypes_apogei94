@@ -1,0 +1,42 @@
+{
+  "name": "apogei-94",
+  "version": "1.0.0",
+  "description": "Site web Apogei 94 - Refonte complète",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build"
+  },
+  "keywords": [
+    "apogei",
+    "handicap",
+    "val-de-marne"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.21"
+  },
+  "main": "vite.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "esbuild": "^0.21.5",
+    "nanoid": "^3.3.11",
+    "picocolors": "^1.1.1",
+    "postcss": "^8.5.6",
+    "rollup": "^4.59.0",
+    "source-map-js": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evaSuricat/prototypes_apogei94.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evaSuricat/prototypes_apogei94/issues"
+  },
+  "homepage": "https://github.com/evaSuricat/prototypes_apogei94#readme"
+}

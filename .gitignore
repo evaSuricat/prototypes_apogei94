@@ -8,19 +8,20 @@ Thumbs.db
 *.swp
 *.swo
 
-# CSS compilé (optionnel - à inclure si tu veux versionner le CSS)
-# css/main.css
-# css/main.css.map
+# Node modules (CRITIQUE - ne pas push)
+node_modules/
 
-# Python scripts temporaires
-*.py
+
+# Build output (optionnel - à inclure si tu veux versionner le build)
+dist/
 
 # Logs
 *.log
 npm-debug.log*
 
-# Backup folder (optionnel)
-# qwen_apogei_v1-0_pour_backup/
-
 # Documentation temporaire
 AUDIT_REPORT.txt
+
+# Scripts de déploiement (optionnel)
+# deploy-git.bat
+# deploy.sh
