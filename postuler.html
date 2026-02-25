@@ -15,30 +15,7 @@
     <!-- Skip-link pour accessibilite -->
     <a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
 
-<!-- Header -->
-<header class="header">
-    <div class="container header-content">
-        <a href="index.html" class="logo" aria-label="Apogei 94 - Accueil">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="16" cy="16" r="16" fill="#00619b"/>
-                <path d="M16 8L24 24H8L16 8Z" fill="white"/>
-            </svg>
-            Apogei 94
-        </a>
-        <nav aria-label="Navigation principale">
-            <ul class="nav-links">
-                <li><a href="index.html">Nos missions</a></li>
-                <li><a href="etablissements.html">Établissements</a></li>
-                <li><a href="carrieres.html" class="active" aria-current="page">Carrières</a></li>
-                <li><a href="soutenir.html">Soutenir</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <a href="contact.html" class="btn btn-outline">Contact</a>
-            <a href="don.html" class="btn btn-primary">Faire un don</a>
-        </div>
-    </div>
-</header>
+<!-- INCLUDE parts/header.html -->
 
 <!-- Breadcrumb -->
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
@@ -163,7 +140,7 @@
                         </div>
                         <div class="form-actions">
                             <div></div>
-                            <button type="button" class="btn btn-primary btn-lg" onclick="nextStep(2)">
+                            <button type="button" class="btn btn-primary btn-lg" data-action="next">
                                 Suivant
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </button>
@@ -207,11 +184,11 @@
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button type="button" class="btn btn-outline btn-lg" onclick="previousStep(1)">
+                            <button type="button" class="btn btn-outline btn-lg" data-action="prev">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 Retour
                             </button>
-                            <button type="button" class="btn btn-primary btn-lg" onclick="nextStep(3)">
+                            <button type="button" class="btn btn-primary btn-lg" data-action="next">
                                 Suivant
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </button>
@@ -232,7 +209,7 @@
                                     <p><strong>Glissez-déposez votre CV ici</strong></p>
                                     <p class="file-types">PDF, DOC, DOCX - Max 5MB</p>
                                     <input type="file" id="cv" name="cv" class="form-file" accept=".pdf,.doc,.docx" required aria-required="true" style="display: none;">
-                                    <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('cv').click()">Parcourir</button>
+                                    <button type="button" class="btn btn-outline btn-sm" data-trigger="file" data-target="cv">Parcourir</button>
                                     <span class="form-error" id="cv-error">Veuillez uploader votre CV</span>
                                 </div>
                             </div>
@@ -243,7 +220,7 @@
                                     <p><strong>Glissez-déposez votre lettre</strong></p>
                                     <p class="file-types">PDF uniquement - Max 5MB</p>
                                     <input type="file" id="lettre" name="lettre" class="form-file" accept=".pdf" required aria-required="true" style="display: none;">
-                                    <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('lettre').click()">Parcourir</button>
+                                    <button type="button" class="btn btn-outline btn-sm" data-trigger="file" data-target="lettre">Parcourir</button>
                                     <span class="form-error" id="lettre-error">Veuillez uploader votre lettre de motivation</span>
                                 </div>
                             </div>
@@ -254,7 +231,7 @@
                                     <p><strong>Glissez-déposez vos diplômes</strong></p>
                                     <p class="file-types">PDF - Max 10MB</p>
                                     <input type="file" id="diplomes" name="diplomes" class="form-file" accept=".pdf" multiple style="display: none;">
-                                    <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('diplomes').click()">Parcourir</button>
+                                    <button type="button" class="btn btn-outline btn-sm" data-trigger="file" data-target="diplomes">Parcourir</button>
                                 </div>
                             </div>
                             <div class="form-group full-width">
@@ -266,7 +243,7 @@
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button type="button" class="btn btn-outline btn-lg" onclick="previousStep(2)">
+                            <button type="button" class="btn btn-outline btn-lg" data-action="prev">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 Retour
                             </button>
@@ -282,48 +259,7 @@
     </section>
 </main>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container footer-grid">
-        <div class="footer-col">
-            <a href="index.html" class="logo footer-logo">Apogei 94</a>
-            <p class="footer-description">
-                Association reconnue d'utilité publique.<br>
-                Accompagner chaque parcours de vie.
-            </p>
-        </div>
-        <div class="footer-col">
-            <h4>Explorer</h4>
-            <ul>
-                <li><a href="index.html">Nos missions</a></li>
-                <li><a href="etablissements.html">Établissements</a></li>
-                <li><a href="gouvernance.html">Gouvernance</a></li>
-                <li><a href="rapports.html">Rapports</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Agir</h4>
-            <ul>
-                <li><a href="don.html">Faire un don</a></li>
-                <li><a href="benevolat.html">Devenir bénévole</a></li>
-                <li><a href="carrieres.html">Recrutement</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Légal</h4>
-            <ul>
-                <li><a href="mentions-legales.html">Mentions légales</a></li>
-                <li><a href="confidentialite.html">Politique de confidentialité</a></li>
-                <li><a href="accessibilite.html">Accessibilité</a></li>
-                <li><a href="cookies.html">Cookies</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="container footer-copyright">
-        &copy; 2025 Apogei 94. Tous droits réservés. Design System v2.0.
-    </div>
-</footer>
+<!-- INCLUDE parts/footer.html -->
 
 <!-- JavaScript - Modules ES6 -->
     <script type="module" src="js/main.js"></script>

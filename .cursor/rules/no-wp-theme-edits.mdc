@@ -1,0 +1,9 @@
+---
+description: Interdiction de modifier le thème WordPress depuis ce workspace
+globs: **/*
+---
+
+# Interdiction thème WordPress
+
+- **Il est strictement interdit** de modifier, créer ou supprimer des fichiers dans le thème WordPress depuis ce workspace. Sont concernés notamment : les dossiers `wp_apogei_prepa_3`, `twentytwentyfour-child-avec-templateparts`, ou tout chemin contenant `wp-content/themes/`.
+- Ce workspace est dédié au **prototype** (qwen_apogei_v2). Les changements pour le thème enfant WordPress doivent être faits dans le workspace ou le dépôt du thème, jamais en éditant le thème depuis ici.

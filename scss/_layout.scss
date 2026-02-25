@@ -29,7 +29,15 @@
   align-items: center;
   gap: var(--space-xs);
   text-decoration: none;
-  
+
+  /* Logo image: hauteur sémantique (spécificité .header .logo img > base img) */
+  img {
+    height: var(--logo-height);
+    width: auto;
+    max-width: none;
+    display: block;
+  }
+
   &:hover {
     color: var(--color-text-brand);
   }

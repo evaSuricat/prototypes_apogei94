@@ -1,0 +1,15 @@
+---
+description: Règles du projet Apogei 94 (refonte site, préparation FSE WordPress)
+globs: **/*
+---
+
+# Projet Apogei 94
+
+- **Référence obligatoire :** [QWEN_GUIDE.md](QWEN_GUIDE.md) pour toute modification (HTML, SCSS, JS).
+- **Ne jamais renommer** une classe CSS existante sans accord explicite.
+- **Ne jamais supprimer** un commentaire existant (HTML, SCSS, JS).
+- **Design system :** utiliser les variables CSS (`--color-*`, `--space-*`, `--radius-*`, `--shadow-*`) dans `scss/_tokens.scss` ; pas de valeurs magiques.
+- **Nouveaux composants :** BEM pour les nouveaux blocs ; conserver les classes actuelles.
+- **Pas de framework JS** : Vanilla JS uniquement, compatible thème FSE WordPress.
+- **Pas de dépendances lourdes** (framework CSS/JS complet).
+- **Autorisé :** nouveaux fichiers, ajout de classes ou commentaires, data-attributes pour les hooks.

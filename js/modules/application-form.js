@@ -129,6 +129,10 @@ function validateStep(step) {
       errors.cv = 'Le CV est obligatoire';
       console.log('    Erreur: cv manquant');
     }
+    if (!state.formData.rgpd) {
+      errors.rgpd = 'Vous devez accepter la politique de confidentialité';
+      console.log('    Erreur: rgpd non coché');
+    }
   }
   
   state.errors = errors;
@@ -451,8 +455,8 @@ export function initApplicationForm(rootElement = document) {
     progressSteps: rootElement.querySelectorAll('.progress-steps .progress-step'),
     progressBar: rootElement.querySelector('[role="progressbar"]'),
     formSections: rootElement.querySelectorAll('.form-section[data-step]'),
-    prevBtn: rootElement.querySelector('button[onclick*="previousStep"]'),
-    nextBtn: rootElement.querySelector('button[onclick*="nextStep"]'),
+    prevBtn: rootElement.querySelector('button[data-action="prev"]'),
+    nextBtn: rootElement.querySelector('button[data-action="next"]'),
     form: form
   };
   
@@ -480,19 +484,25 @@ export function initApplicationForm(rootElement = document) {
     }
   });
   
-  // Override inline onclick handlers
-  const buttons = form.querySelectorAll('button[type="button"]');
-  buttons.forEach(btn => {
-    if (btn.onclick && btn.onclick.toString().includes('nextStep')) {
-      btn.addEventListener('click', (e) => {
+  // Bind step navigation (data-action) and file triggers (data-trigger="file" data-target="id")
+  form.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    const action = btn.getAttribute('data-action');
+    const trigger = btn.getAttribute('data-trigger');
+    if (action === 'next') {
+      e.preventDefault();
+      handleNext();
+    } else if (action === 'prev') {
+      e.preventDefault();
+      handlePrev();
+    } else if (trigger === 'file') {
+      const targetId = btn.getAttribute('data-target');
+      if (targetId) {
         e.preventDefault();
-        handleNext();
-      });
-    } else if (btn.onclick && btn.onclick.toString().includes('previousStep')) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        handlePrev();
-      });
+        const input = rootElement.getElementById(targetId);
+        if (input && input.type === 'file') input.click();
+      }
     }
   });
   

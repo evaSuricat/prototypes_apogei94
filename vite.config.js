@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import { htmlIncludePlugin } from './scripts/vite-plugin-html-include.js'
 
 export default defineConfig({
+  plugins: [htmlIncludePlugin(resolve(__dirname))],
   // Base path pour le déploiement dans un sous-dossier
   base: './',
   

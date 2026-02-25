@@ -8,10 +8,13 @@
  */
 
 // Import des modules
+import { initHeaderActiveLink } from './modules/header-active-link.js';
 import { initDonationCalculator } from './modules/donation-calculator.js';
 import { initEstablishmentsFilters } from './modules/filters-establishments.js';
 import { initCareerFilters } from './modules/filters-jobs.js';
 import { initApplicationForm } from './modules/application-form.js';
+import { initEstablishmentTabs } from './modules/establishment-tabs.js';
+import { initOffreActions } from './modules/offre-actions.js';
 
 // --------------------------------------------------------------------------
 // INITIALISATION AU CHARGEMENT DU DOM
@@ -21,6 +24,9 @@ import { initApplicationForm } from './modules/application-form.js';
  * Initialise tous les modules nécessaires pour la page courante.
  */
 function init() {
+  // Lien actif dans la nav du header (toutes les pages)
+  initHeaderActiveLink(document);
+
   // Détection et initialisation du calculateur de don (page don.html)
   const donateForm = document.getElementById('donate-form');
   if (donateForm) {
@@ -54,10 +60,17 @@ function init() {
     initApplicationForm(document);
   }
 
-  // Future initialisation d'autres modules :
-  // - Tabs + gallery (etablissement-detail.html)
-  // - Print + share (offre-detail.html)
-  // - etc.
+  // Détection et initialisation des onglets + galerie (page etablissement-detail.html)
+  const isEtablissementDetailPage = document.querySelector('.detail-hero') || document.querySelector('.media-gallery-trigger');
+  if (isEtablissementDetailPage) {
+    initEstablishmentTabs(document);
+  }
+
+  // Détection et initialisation print + partage (page offre-detail.html)
+  const isOffreDetailPage = document.querySelector('.job-hero') || document.querySelector('.share-buttons');
+  if (isOffreDetailPage) {
+    initOffreActions(document);
+  }
 
   console.log('✅ Apogei 94 JavaScript initialized');
 }

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build:css": "sass scss/main.scss css/main.css --no-source-map",
+    "watch:css": "sass scss/main.scss css/main.css --no-source-map --watch",
     "build": "npm run build:css && vite build",
     "preview": "vite preview",
     "deploy": "npm run build"

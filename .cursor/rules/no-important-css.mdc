@@ -1,0 +1,10 @@
+---
+description: Pas de !important en SCSS/CSS — primordial
+globs: **/*.scss, **/*.css
+---
+
+# Pas de !important en SCSS/CSS
+
+- **Ne jamais utiliser `!important`** dans les fichiers SCSS ou CSS.
+- Privilégier **la spécificité** (sélecteurs plus ciblés, ex. `.header .logo img` plutôt qu’un `img` global) et **l’ordre des sources** (cascade) pour faire gagner la règle voulue.
+- Si une règle globale écrase un cas particulier, renforcer le sélecteur ou déplacer la règle dans une feuille chargée après, plutôt que d’ajouter `!important`.

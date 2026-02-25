@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.5/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        { "slug": "bg-default", "name": "Background", "color": "#f9f9f9" },
+        { "slug": "bg-surface", "name": "Surface", "color": "#ffffff" },
+        { "slug": "bg-brand", "name": "Brand", "color": "#00619b" },
+        { "slug": "text-default", "name": "Text", "color": "#111111" },
+        { "slug": "text-secondary", "name": "Text Secondary", "color": "#636363" },
+        { "slug": "text-inverse", "name": "Text Inverse", "color": "#ffffff" },
+        { "slug": "text-brand", "name": "Text Brand", "color": "#00619b" },
+        { "slug": "border-default", "name": "Border", "color": "#e5e5e5" },
+        { "slug": "border-focus", "name": "Border Focus", "color": "#00619b" }
+      ]
+    },
+    "layout": {
+      "contentSize": "620px",
+      "wideSize": "1280px"
+    },
+    "spacing": {
+      "spacingSizes": [
+        { "slug": "20", "name": "S", "size": "0.5rem" },
+        { "slug": "30", "name": "M", "size": "1rem" },
+        { "slug": "40", "name": "L", "size": "1.5rem" },
+        { "slug": "50", "name": "XL", "size": "2rem" }
+      ],
+      "units": ["%", "px", "em", "rem", "vh", "vw"]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "body",
+          "name": "Body",
+          "fontFamily": "\"Aptos\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "slug": "heading",
+          "name": "Heading",
+          "fontFamily": "\"Aptos\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "body-sm", "name": "Body Small", "size": "0.875rem" },
+        { "slug": "body", "name": "Body", "size": "1rem" },
+        { "slug": "h4", "name": "H4", "size": "1.25rem" },
+        { "slug": "h3", "name": "H3", "size": "1.5rem" },
+        { "slug": "h2", "name": "H2", "size": "2rem" },
+        { "slug": "h1", "name": "H1", "size": "2.5rem" }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--bg-default)",
+      "text": "var(--wp--preset--color--text-default)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--body)",
+      "fontSize": "var(--wp--preset--font-size--body)"
+    },
+    "spacing": {
+      "blockGap": "1.2rem"
+    }
+  }
+}

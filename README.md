@@ -41,6 +41,10 @@ qwen_apogei_v1/
 
 ## 🛠️ Développement
 
+### Header et footer (inclusion au build)
+
+Le header et le footer ne sont **pas dupliqués** dans les 7 pages HTML. Ils sont définis une seule fois dans `parts/header.html` et `parts/footer.html`. Les pages contiennent les placeholders `<!-- INCLUDE parts/header.html -->` et `<!-- INCLUDE parts/footer.html -->`, remplacés par le plugin Vite (`scripts/vite-plugin-html-include.js`) lors du **serveur de dev** (`npm run dev`) et du **build** (`npm run build`). Pour modifier le header ou le footer, éditer uniquement les fichiers dans `parts/`. Voir `docs/FSE_READINESS.md` pour le contrat FSE.
+
 ### Prérequis
 
 - [Sass](https://sass-lang.com/) : `npm install -g sass`
