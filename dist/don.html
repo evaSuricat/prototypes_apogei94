@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire un don - Apogei 94</title>
+    <meta name="description" content="Soutenez Apogei 94 et transformez des vies. Don déductible des impôts à 66%.">
+    <!-- Preload CSS critique -->
+    <!-- Styles - CSS compilé depuis scss/main.scss -->
+  <script type="module" crossorigin src="./assets/main-D5NgSJp4.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-dR-whgPX.css">
+</head>
+<body>
+
+<!-- Skip-link pour accessibilité -->
+<a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
+
+<!-- Header -->
+<header class="header" id="site-header">
+    <div class="container header-content">
+        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+            <span class="menu-toggle-bar"></span>
+            <span class="menu-toggle-bar"></span>
+            <span class="menu-toggle-bar"></span>
+        </button>
+        <a href="index.html" class="logo" aria-label="Apogei 94 - Accueil">
+            <img src="./assets/logo_apogei-C6uAtKQi.svg" alt="Apogei 94 - Accueil">
+        </a>
+        <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+            <button class="menu-close" aria-label="Fermer le menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" aria-current="page">Nos missions</a></li>
+                <li><a href="etablissements.html">Établissements</a></li>
+                <li><a href="carrieres.html">Carrières</a></li>
+                <li><a href="soutenir.html">Soutenir</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-outline">Contact</a>
+                <a href="don.html" class="btn btn-primary">Faire un don</a>
+            </div>
+        </nav>
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-outline">Contact</a>
+            <a href="don.html" class="btn btn-primary">Faire un don</a>
+        </div>
+    </div>
+    <div class="menu-overlay" aria-hidden="true"></div>
+</header>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+        <ol class="breadcrumb-list">
+            <li><a href="index.html">Accueil</a></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="#636363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+            <li><a href="soutenir.html">Soutenir</a></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="#636363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+            <li aria-current="page">Faire un don</li>
+        </ol>
+    </div>
+</nav>
+
+<main id="main-content">
+    <!-- Hero Section -->
+    <section class="donate-hero">
+        <div class="container">
+            <div class="donate-hero-content">
+                <span class="donate-hero-badge">🎯 Association reconnue d'utilité publique</span>
+                <h1 class="donate-hero-title">Votre soutien transforme des vies</h1>
+                <p class="donate-hero-desc">
+                    Grâce à votre générosité, nous accompagnons chaque jour 1400 personnes
+                    en situation de handicap dans le Val-de-Marne.
+                </p>
+                <div class="tax-info">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2.5C5.5 2.5 2.5 5.5 2.5 10C2.5 14.5 10 17.5 10 17.5C10 17.5 17.5 14.5 17.5 10C17.5 5.5 14.5 2.5 10 2.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 6V10L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <span>66% de votre don est déductible des impôts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Calculator -->
+    <section class="container">
+        <div class="impact-calculator">
+            <div class="calculator-title">
+                <h2>Simulez l'impact de votre don</h2>
+                <p>Chaque euro compte. Voyez concrètement ce que votre don permet de financer.</p>
+            </div>
+
+            <div class="donation-amounts" role="group" aria-label="Montants de don prédéfinis">
+                <button class="amount-btn" data-amount="30">30€</button>
+                <button class="amount-btn active" data-amount="50">50€</button>
+                <button class="amount-btn" data-amount="100">100€</button>
+                <button class="amount-btn" data-amount="200">200€</button>
+                <button class="amount-btn" data-amount="500">500€</button>
+            </div>
+
+            <div class="custom-amount">
+                <label for="custom-amount">Ou saisissez un montant personnalisé</label>
+                <input type="number" id="custom-amount" class="custom-amount-input" placeholder="Ex: 75" min="1" max="10000">
+            </div>
+
+            <div class="frequency-toggle" role="group" aria-label="Fréquence du don">
+                <button class="frequency-btn active" data-frequency="one-time">Don unique</button>
+                <button class="frequency-btn" data-frequency="monthly">Don mensuel</button>
+            </div>
+
+            <div class="impact-display" aria-live="polite" aria-atomic="true">
+                <h3>Avec <span id="display-amount">50</span>€, vous financez :</h3>
+                <div class="impact-items">
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 2L2 9L16 16L30 9L16 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 23L16 30L30 23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 16L16 23L30 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="impact-value" id="impact-1">15 repas adaptés</div>
+                        <div class="impact-label">Pour les résidents</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/><path d="M16 8V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="impact-value" id="impact-2">5h d'accompagnement</div>
+                        <div class="impact-label">Vers l'autonomie</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/></svg>
+                        </div>
+                        <div class="impact-value" id="impact-3">3 ateliers thérapeutiques</div>
+                        <div class="impact-label">Pour le bien-être</div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="donate-form" id="donate-form">
+                <button type="submit" class="btn btn-primary btn-xl">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2.5L17.5 10L10 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 10H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Faire un don de <span id="button-amount">50</span>€
+                </button>
+                <p style="text-align: center; font-size: var(--font-size-caption); color: var(--color-text-muted); margin-top: var(--space-sm);">
+                    Paiement sécurisé par carte bancaire • Reçu fiscal envoyé automatiquement
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Impact Stories -->
+    <section class="impact-stories">
+        <div class="container">
+            <div class="stories-header">
+                <h2>Votre don change des vies</h2>
+                <p>Découvrez les témoignages des personnes que vous aidez</p>
+            </div>
+            <div class="stories-grid">
+                <article class="story-card">
+                    <div class="story-media">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Victoria en cuisine" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-donation">Don de 100€</span>
+                        <h3 class="story-title">Victoria retrouve son autonomie</h3>
+                        <p class="story-excerpt">
+                            "Grâce aux ateliers cuisine financés par les dons, j'ai appris à
+                            préparer des repas équilibrés. Maintenant je cuisine pour ma famille !"
+                        </p>
+                        <a href="#" class="btn btn-outline">Lire son histoire →</a>
+                    </div>
+                </article>
+                <article class="story-card">
+                    <div class="story-media">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mathieu espaces verts" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-donation">Don de 200€</span>
+                        <h3 class="story-title">Mathieu s'épanouit au travail</h3>
+                        <p class="story-excerpt">
+                            "À l'ESAT, je me sens utile. Les dons permettent d'acheter du
+                            matériel pour nos activités d'espaces verts."
+                        </p>
+                        <a href="#" class="btn btn-outline">Lire son histoire →</a>
+                    </div>
+                </article>
+                <article class="story-card">
+                    <div class="story-media">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sophie éducatrice" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-donation">Don mensuel 50€</span>
+                        <h3 class="story-title">Sophie forme les nouvelles équipes</h3>
+                        <p class="story-excerpt">
+                            "Les dons financent notre formation continue. Je peux ainsi
+                            transmettre mes connaissances aux nouveaux éducateurs."
+                        </p>
+                        <a href="#" class="btn btn-outline">Lire son histoire →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency-section">
+        <div class="container">
+            <div class="stories-header">
+                <h2>La transparence, notre engagement</h2>
+                <p>Chaque euro est utilisé de manière optimale pour accompagner les personnes</p>
+            </div>
+            <div class="transparency-grid">
+                <div class="transparency-card">
+                    <div class="transparency-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 3.33333C10.7953 3.33333 3.33333 10.7953 3.33333 20C3.33333 29.2047 10.7953 36.6667 20 36.6667C29.2047 36.6667 36.6667 29.2047 36.6667 20C36.6667 10.7953 29.2047 3.33333 20 3.33333Z" stroke="currentColor" stroke-width="2"/><path d="M20 13.3333V20L26.6667 23.3333" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="transparency-value">85%</div>
+                    <h3 class="transparency-title">Directement en actions</h3>
+                    <p class="transparency-desc">De vos dons sont utilisés pour l'accompagnement des personnes</p>
+                </div>
+                <div class="transparency-card">
+                    <div class="transparency-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="transparency-value">1400+</div>
+                    <h3 class="transparency-title">Personnes accompagnées</h3>
+                    <p class="transparency-desc">Chaque année dans le Val-de-Marne</p>
+                </div>
+                <div class="transparency-card">
+                    <div class="transparency-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M16 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M3 10H21" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <div class="transparency-value">100%</div>
+                    <h3 class="transparency-title">Déductible des impôts</h3>
+                    <p class="transparency-desc">66% dans la limite de 20% du revenu imposable</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Questions fréquentes</h2>
+                <p>Tout ce que vous devez savoir sur les dons</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        Comment est calculée la réduction d'impôt ?
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2.5C5.5 2.5 2.5 5.5 2.5 10C2.5 14.5 10 17.5 10 17.5C10 17.5 17.5 14.5 17.5 10C17.5 5.5 14.5 2.5 10 2.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 6V10L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </h3>
+                    <p class="faq-answer">
+                        66% de votre don est déductible de vos impôts sur le revenu, dans la limite
+                        de 20% de votre revenu imposable. Exemple: pour un don de 100€, vous ne payez
+                        que 34€ après réduction d'impôt.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        Quand recevrai-je mon reçu fiscal ?
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2.5C5.5 2.5 2.5 5.5 2.5 10C2.5 14.5 10 17.5 10 17.5C10 17.5 17.5 14.5 17.5 10C17.5 5.5 14.5 2.5 10 2.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 6V10L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </h3>
+                    <p class="faq-answer">
+                        Votre reçu fiscal vous sera envoyé automatiquement par email immédiatement
+                        après votre don. Un récapitulatif annuel vous sera également envoyé en janvier.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        Puis-je modifier ou arrêter mon don mensuel ?
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2.5C5.5 2.5 2.5 5.5 2.5 10C2.5 14.5 10 17.5 10 17.5C10 17.5 17.5 14.5 17.5 10C17.5 5.5 14.5 2.5 10 2.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 6V10L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </h3>
+                    <p class="faq-answer">
+                        Oui, vous pouvez modifier le montant ou arrêter votre don mensuel à tout
+                        moment, sans frais, en contactant notre équipe ou via votre espace donateur.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        Quels moyens de paiement acceptez-vous ?
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2.5C5.5 2.5 2.5 5.5 2.5 10C2.5 14.5 10 17.5 10 17.5C10 17.5 17.5 14.5 17.5 10C17.5 5.5 14.5 2.5 10 2.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 6V10L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </h3>
+                    <p class="faq-answer">
+                        Nous acceptons les cartes bancaires (CB, Visa, Mastercard), les prélèvements
+                        automatiques pour les dons mensuels, ainsi que les chèques et virements bancaires.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container">
+        <div class="cta-section">
+            <h2>Une question sur les dons ?</h2>
+            <p>
+                Notre équipe est à votre disposition pour répondre à toutes vos questions
+                sur les dons, la réduction d'impôt ou nos actions sur le terrain.
+            </p>
+            <div class="cta-buttons">
+                <a href="contact.html?sujet=don" class="btn btn-white btn-lg">Nous contacter →</a>
+                <a href="telecharger-guide-don.pdf" class="btn btn-outline-white btn-lg">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2.5V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6.5 9L10 12.5L13.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 15V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    Télécharger le guide du donateur
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="logo footer-logo">Apogei 94</a>
+            <p class="footer-description">
+                Association reconnue d'utilité publique.<br>
+                Accompagner chaque parcours de vie.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>Explorer</h4>
+            <ul>
+                <li><a href="index.html">Nos missions</a></li>
+                <li><a href="etablissements.html">Établissements</a></li>
+                <li><a href="gouvernance.html">Gouvernance</a></li>
+                <li><a href="rapports.html">Rapports</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Agir</h4>
+            <ul>
+                <li><a href="don.html">Faire un don</a></li>
+                <li><a href="benevolat.html">Devenir bénévole</a></li>
+                <li><a href="carrieres.html">Recrutement</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Légal</h4>
+            <ul>
+                <li><a href="mentions-legales.html">Mentions légales</a></li>
+                <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                <li><a href="accessibilite.html">Accessibilité</a></li>
+                <li><a href="cookies.html">Cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-copyright">
+        &copy; 2025 Apogei 94. Tous droits réservés. Design System v2.0.
+    </div>
+</footer>
+
+<!-- JavaScript - Modules ES6 -->
+</body>
+</html>
