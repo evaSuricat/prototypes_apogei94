@@ -83,6 +83,11 @@ export function initMobileMenu(root = document) {
     isOpen() ? close() : open();
   });
 
+  const closeBtn = nav.querySelector('.menu-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', close);
+  }
+
   if (overlay) {
     overlay.addEventListener('click', close);
   }

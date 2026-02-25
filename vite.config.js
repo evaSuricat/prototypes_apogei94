@@ -32,6 +32,7 @@ export default defineConfig({
   // Server options pour le dev local
   server: {
     port: 3000,
-    open: false
+    open: false,
+    allowedHosts: true
   }
 })
