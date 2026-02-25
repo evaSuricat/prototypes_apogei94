@@ -615,7 +615,9 @@
     color: var(--color-text-brand);
   }
 
-  @include focus-ring(var(--color-focus));
+  &:focus-visible {
+    @include focus-ring(var(--color-focus));
+  }
 }
 
 .establishment-lightbox__close {
