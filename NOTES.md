@@ -189,6 +189,65 @@ git push origin main     # Push GitHub
 
 ---
 
-**Dernière mise à jour :** 21 Février 2026  
+**Dernière mise à jour :** 21 Février 2026 (Session 2)  
 **Prochaine session :** [DATE]  
 **Objectif :** [FEATURE À AJOUTER]
+
+---
+
+## 📅 Session du 21 Février 2026 (SESSION 2 - Build & CSS)
+
+### ✅ Ce qu'on a fait :
+
+- [x] **Correction du build CSS** : Ajout de `npm run build:css` avant `vite build`
+- [x] **Mise à jour package.json** : Scripts build:css + build enchaînés
+- [x] **Documentation** : NOTES.md mis à jour avec workflow complet
+- [x] **Settings VS Code** : .vscode/settings.json créé
+
+### 🔧 PROBLÈME RÉSOLU
+
+| Problème | Cause | Solution |
+|----------|-------|----------|
+| **CSS pas affiché en local** | Vite ne bundle pas le CSS automatiquement | Ajout `build:css` script |
+| **Liens cassés en preview** | `base: './'` dans vite.config.js | Tester directement en prod ou Live Server |
+| **css/main.css inexistant** | SCSS non compilé avant build Vite | `npm run build:css && vite build` |
+
+### 📁 Fichiers modifiés :
+
+| Fichier | Modification |
+|---------|--------------|
+| `package.json` | Ajout script `build:css` + enchaînement dans `build` |
+| `NOTES.md` | Mis à jour avec nouveau workflow |
+
+### 🚀 WORKFLOW CORRIGÉ (À SUIVRE)
+
+```bash
+# Build (CSS + Vite automatiquement)
+npm run build
+# → Équivaut à : npm run build:css && vite build
+
+# Preview local
+npm run preview
+# → http://localhost:4173/
+
+# OU Live Server (meilleur pour les liens)
+# Ouvre dist/index.html → Live Server
+
+# Deploy
+# FileZilla → dist/ → /www/prototypes/qwen_apogei_v1/
+
+# Commit
+git add .
+git commit -m "Message"
+git push origin main
+```
+
+### ⚠️ POINTS D'ATTENTION
+
+| Point | Solution |
+|-------|----------|
+| **Preview Vite = liens cassés** | Utiliser Live Server ou test direct fichier |
+| **CSS non bundle par Vite** | Compilation SCSS manuelle avant build |
+| **base: './'** | Configuré pour prod (sous-dossier Infomaniak) |
+
+---
