@@ -15,6 +15,7 @@ import { initCareerFilters } from './modules/filters-jobs.js';
 import { initApplicationForm } from './modules/application-form.js';
 import { initEstablishmentTabs } from './modules/establishment-tabs.js';
 import { initOffreActions } from './modules/offre-actions.js';
+import { initMobileMenu } from './modules/mobile-menu.js';
 
 // --------------------------------------------------------------------------
 // INITIALISATION AU CHARGEMENT DU DOM
@@ -26,6 +27,9 @@ import { initOffreActions } from './modules/offre-actions.js';
 function init() {
   // Lien actif dans la nav du header (toutes les pages)
   initHeaderActiveLink(document);
+
+  // Menu mobile (hamburger) – toutes les pages
+  initMobileMenu(document);
 
   // Détection et initialisation du calculateur de don (page don.html)
   const donateForm = document.getElementById('donate-form');

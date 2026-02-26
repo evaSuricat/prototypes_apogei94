@@ -1,20 +1,36 @@
 <!-- Header -->
-<header class="header">
+<header class="header" id="site-header">
     <div class="container header-content">
+        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+            <span class="menu-toggle-bar"></span>
+            <span class="menu-toggle-bar"></span>
+            <span class="menu-toggle-bar"></span>
+        </button>
         <a href="index.html" class="logo" aria-label="Apogei 94 - Accueil">
             <img src="assets/logo_apogei.svg" alt="Apogei 94 - Accueil">
         </a>
-        <nav aria-label="Navigation principale">
+        <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+            <button class="menu-close" aria-label="Fermer le menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html" class="active" aria-current="page">Nos missions</a></li>
                 <li><a href="etablissements.html">Établissements</a></li>
                 <li><a href="carrieres.html">Carrières</a></li>
                 <li><a href="soutenir.html">Soutenir</a></li>
             </ul>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-outline">Contact</a>
+                <a href="don.html" class="btn btn-primary">Faire un don</a>
+            </div>
         </nav>
         <div class="header-actions">
             <a href="contact.html" class="btn btn-outline">Contact</a>
             <a href="don.html" class="btn btn-primary">Faire un don</a>
         </div>
     </div>
+    <div class="menu-overlay" aria-hidden="true"></div>
 </header>
