@@ -1,0 +1,297 @@
+// =============================================================================
+// _header-responsive.scss — Header prototype Apogei (hamburger + slide-in)
+// Porté depuis le prototype HTML (prototypes_apogei94)
+// Breakpoint : $bp-lg-max (64rem / 1024px)
+// =============================================================================
+
+@use "breakpoints" as *;
+
+// --------------------------------------------------
+// Header wrapper
+// --------------------------------------------------
+
+.apogei-header {
+  background-color: var(--wp--preset--color--bg-surface, #ffffff);
+  border-bottom: 1px solid var(--wp--preset--color--border-default, #e5e5e5);
+  position: sticky;
+  top: 0;
+  z-index: var(--apogei--z--sticky, 1100);
+  height: 5rem; // 80px
+  display: flex;
+  align-items: center;
+}
+
+.apogei-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--wp--style--global--wide-size, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--wp--preset--spacing--20, 1.5rem);
+
+  @media (max-width: $bp-lg-max) {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
+// --------------------------------------------------
+// Logo
+// --------------------------------------------------
+
+.apogei-header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  img {
+    height: 2.5em;
+    width: auto;
+    max-width: none;
+    display: block;
+  }
+
+  @media (max-width: $bp-lg-max) {
+    grid-column: 2;
+    justify-self: center;
+  }
+}
+
+// --------------------------------------------------
+// Menu toggle (hamburger) — hidden on desktop
+// --------------------------------------------------
+
+.apogei-header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3125rem; // 5px
+  width: 2.75rem; // 44px
+  height: 2.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--apogei--space--xs, 0.5rem);
+
+  @media (max-width: $bp-lg-max) {
+    display: flex;
+    grid-column: 1;
+    justify-self: start;
+  }
+}
+
+.apogei-header__toggle-bar {
+  display: block;
+  width: 1.375rem; // 22px
+  height: 0.125rem; // 2px
+  background-color: var(--wp--preset--color--text-default, #111111);
+  border-radius: var(--apogei--radius--full, 9999px);
+  transition:
+    transform var(--apogei--duration--slow, 250ms) var(--apogei--easing--default, ease),
+    opacity var(--apogei--duration--slow, 250ms) var(--apogei--easing--default, ease);
+}
+
+.apogei-header.is-menu-open .apogei-header__toggle-bar {
+  &:nth-child(1) {
+    transform: translateY(0.4375rem) rotate(45deg); // 7px
+  }
+
+  &:nth-child(2) {
+    opacity: 0;
+  }
+
+  &:nth-child(3) {
+    transform: translateY(-0.4375rem) rotate(-45deg);
+  }
+}
+
+// --------------------------------------------------
+// Main nav — desktop inline, tablet/mobile sliding panel
+// --------------------------------------------------
+
+.apogei-header__nav {
+  @media (max-width: $bp-lg-max) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(20rem, 85vw); // 320px
+    height: 100vh;
+    height: 100dvh;
+    background-color: var(--wp--preset--color--bg-surface, #ffffff);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition:
+      transform var(--apogei--duration--slower, 350ms) var(--apogei--easing--default, ease),
+      visibility 0s linear var(--apogei--duration--slower, 350ms);
+    z-index: var(--apogei--z--overlay, 1300);
+    padding: var(--apogei--space--lg, 1.5rem) var(--apogei--space--xl, 2rem) var(--apogei--space--xl, 2rem);
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &.is-open {
+      transform: translateX(0);
+      visibility: visible;
+      box-shadow: var(--apogei--shadow--xl);
+      transition:
+        transform var(--apogei--duration--slower, 350ms) var(--apogei--easing--default, ease),
+        visibility 0s linear 0s;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Close button inside mobile panel
+// --------------------------------------------------
+
+.apogei-header__close {
+  display: none;
+
+  @media (max-width: $bp-lg-max) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--wp--preset--color--text-default, #111111);
+    align-self: flex-end;
+    margin-bottom: var(--apogei--space--md, 1rem);
+    border-radius: var(--apogei--radius--md, 6px);
+    transition: background-color var(--apogei--duration--fast, 100ms) var(--apogei--easing--default, ease);
+
+    &:hover {
+      background-color: var(--wp--preset--color--bg-subtle, #f3f3f3);
+    }
+  }
+}
+
+// --------------------------------------------------
+// Nav links
+// --------------------------------------------------
+
+.apogei-header__links {
+  display: flex;
+  gap: var(--apogei--space--xl, 2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    font-weight: 600;
+    color: var(--wp--preset--color--text-default, #111111);
+    padding: var(--apogei--space--xs, 0.5rem) 0;
+    position: relative;
+    text-decoration: none;
+
+    &:hover,
+    &[aria-current="page"] {
+      color: var(--wp--preset--color--text-brand, #00619b);
+    }
+
+    &[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--wp--preset--color--border-brand, #00619b);
+      border-radius: var(--apogei--radius--full, 9999px);
+    }
+  }
+
+  @media (max-width: $bp-lg-max) {
+    flex-direction: column;
+    gap: 0;
+
+    li {
+      border-bottom: 1px solid var(--wp--preset--color--border-subtle, #f3f3f3);
+    }
+
+    a {
+      display: block;
+      padding: var(--apogei--space--md, 1rem) 0;
+      font-size: var(--wp--preset--font-size--body-lg, 1.125rem);
+
+      &[aria-current="page"]::after {
+        display: none;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// Actions inside the mobile sliding panel
+// --------------------------------------------------
+
+.apogei-header__nav-actions {
+  display: none;
+
+  @media (max-width: $bp-lg-max) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--apogei--space--sm, 0.75rem);
+    margin-top: auto;
+    padding-top: var(--apogei--space--xl, 2rem);
+
+    .wp-block-button__link {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Header actions (desktop: Contact + Faire un don)
+// --------------------------------------------------
+
+.apogei-header__actions {
+  display: flex;
+  gap: var(--apogei--space--sm, 0.75rem);
+
+  @media (max-width: $bp-lg-max) {
+    grid-column: 3;
+    justify-self: end;
+
+    .apogei-header__btn--outline {
+      display: none;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Menu overlay
+// --------------------------------------------------
+
+.apogei-header__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: calc(var(--apogei--z--overlay, 1300) - 1);
+  pointer-events: none;
+  transition: background-color var(--apogei--duration--slower, 350ms) var(--apogei--easing--default, ease);
+
+  .apogei-header.is-menu-open & {
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+  }
+}
+
+// --------------------------------------------------
+// Reduced motion
+// --------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .apogei-header__nav,
+  .apogei-header__overlay,
+  .apogei-header__toggle-bar {
+    transition-duration: 0.01ms !important;
+  }
+}

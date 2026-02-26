@@ -1,0 +1,28 @@
+/*
+ Theme Name:   twentytwentyfour-child FSE
+ Template:     twentytwentyfour
+ Description:  Thème enfant basé sur Twentytwentyfour, connecté à un design system Figma.
+ Author:       Eva Kasal
+ Version:      1.0.0
+ Text Domain:  twentytwentyfour-child
+*/
+
+
+/* Point d’entrée SCSS Apogei
+   (sera compilé en style.css) */
+
+
+@use "tokens";
+@use "themes";
+@use "tabs";
+@use "accordions";
+@use "buttons";
+@use "icons";
+@use "cards";
+@use "menu-mega";
+@use "header-responsive";
+@use "menu-filtres-poles";
+@use "hero";
+@use "nav-secondaire-fiche";
+@use "offre-cta";
+@use 'tokens-custom-properties';

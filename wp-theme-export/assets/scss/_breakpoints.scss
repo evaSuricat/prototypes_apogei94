@@ -1,0 +1,13 @@
+// =============================================================================
+// _breakpoints.scss — Variables de breakpoints (rem uniquement)
+// Aligné sur le comportement WordPress / FSE (colonnes qui s’empilent).
+// Réf. Gutenberg 781px / 782px → conversion en rem (base 16px).
+// =============================================================================
+
+// Stack / side-by-side (WordPress core)
+$bp-md-max: 48.8125rem;   // 781px — colonnes empilées en dessous
+$bp-tablet-min: 48.875rem; // 782px — colonnes côte à côte au-dessus
+
+// Header responsive (prototype Apogei)
+$bp-lg-max: 64rem;        // 1024px — hamburger visible en dessous
+$bp-lg-min: 64.0625rem;   // 1025px — nav desktop au-dessus

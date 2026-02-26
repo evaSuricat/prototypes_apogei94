@@ -1,0 +1,1513 @@
+@charset "UTF-8";
+/*
+ Theme Name:   twentytwentyfour-child FSE
+ Template:     twentytwentyfour
+ Description:  Thème enfant basé sur Twentytwentyfour, connecté à un design system Figma.
+ Author:       Eva Kasal
+ Version:      1.0.0
+ Text Domain:  twentytwentyfour-child
+*/
+/* Point d’entrée SCSS Apogei
+   (sera compilé en style.css) */
+/* ===========================
+   Tokens globaux Apogei
+   =========================== */
+/*
+ * Ce fichier crée des aliases legacy (--apo-*) qui pointent vers :
+ * - Les presets WordPress sémantiques (--wp--preset--color--bg-brand, etc.)
+ * - Les custom properties générées (--apogei--*)
+ *
+ * Sauvegarde : _legacy/_tokens.scss.bak
+ */
+:root {
+  /* ===========================================
+     TYPOGRAPHIE
+     =========================================== */
+  /* Familles de polices (connectées à theme.json) */
+  --apo-font-heading: var(--wp--preset--font-family--heading);
+  --apo-font-body: var(--wp--preset--font-family--body);
+  /* Tailles de texte (alignées sur theme.json enfant) */
+  --apo-font-size-body: var(--wp--preset--font-size--body);
+  --apo-font-size-small: var(--wp--preset--font-size--body-sm);
+  --apo-font-size-button: var(--wp--preset--font-size--body-sm);
+  /* ===========================================
+     COULEURS - Nouveaux tokens sémantiques
+     =========================================== */
+  /* Couleurs brand */
+  --apo-color-primary: var(--wp--preset--color--bg-brand, #00619B);
+  --apo-color-primary-soft: var(--wp--preset--color--bg-brand-subtle, #e6f0f7);
+  --apo-color-accent: var(--wp--preset--color--bg-accent-green, #76B82A);
+  --apo-color-highlight: var(--wp--preset--color--bg-accent-yellow, #FFC52F);
+  /* Couleurs supplémentaires */
+  --apo-color-text: var(--wp--preset--color--text-default, #111111);
+  --apo-color-text-secondary: var(--wp--preset--color--text-secondary, #636363);
+  --apo-color-bg: var(--wp--preset--color--bg-default, #f9f9f9);
+  --apo-color-surface: var(--wp--preset--color--bg-surface, #ffffff);
+  /* ===========================================
+     ESPACEMENTS - Aliases vers --apogei--space--*
+     =========================================== */
+  --apo-space-xs: var(--apogei--space--2xs, 4px); /* 4px */
+  --apo-space-s: var(--apogei--space--xs, 8px); /* 8px */
+  --apo-space-m: var(--apogei--space--sm, 12px); /* 12px */
+  --apo-space-l: var(--apogei--space--md, 16px); /* 16px */
+  --apo-space-xl: var(--apogei--space--lg, 24px); /* 24px */
+  /* ===========================================
+     RADIUS - Aliases vers --apogei--radius--*
+     =========================================== */
+  --apo-radius-xs: 2px;
+  --apo-radius-sm: var(--apogei--radius--sm, 4px);
+  --apo-radius-md: var(--apogei--radius--lg, 8px);
+  --apo-radius-lg: var(--apogei--radius--full, 9999px);
+  /* ===========================================
+     DUREES - Aliases vers --apogei--duration--*
+     =========================================== */
+  --apo-duration-fast: var(--apogei--duration--normal, 150ms);
+  --apo-duration-normal: var(--apogei--duration--slow, 250ms);
+  /* ===========================================
+     BOUTONS
+     =========================================== */
+  --apo-button-font-weight: 600;
+  --apo-button-letter-spacing: 0.02em;
+  --apo-button-radius: var(--apogei--radius--md, 6px);
+  --apo-button-padding-y: 0.5rem;
+  --apo-button-padding-x: 1.25rem;
+}
+
+/* Base body */
+body {
+  font-family: var(--apo-font-body);
+  font-size: var(--apo-font-size-body);
+}
+
+/* Variantes de thème Apogei
+ *
+ * Utilise les nouveaux tokens sémantiques WordPress
+ * Sauvegarde : _legacy/_themes.scss.bak
+ */
+/* Thème 1 : officiel (valeurs = défaut du :root) */
+/* Paire 0 : Aptos (défaut) => déjà gérée par theme.json */
+.apo-theme-1 {
+  --apo-color-primary: var(--wp--preset--color--bg-brand, #00619B);
+  --apo-color-primary-soft: var(--wp--preset--color--bg-brand-subtle, #e6f0f7);
+  --apo-color-accent: var(--wp--preset--color--bg-accent-green, #76B82A);
+  --apo-color-highlight: var(--wp--preset--color--bg-accent-yellow, #FFC52F);
+}
+
+/* Thème 1 avec paire 1 Nunito / Noto */
+.apo-theme-1.apo-font-pair-1 {
+  --apo-font-heading: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --apo-font-body: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Thème 1 avec paire 2 Poppins / Inter */
+.apo-theme-1.apo-font-pair-2 {
+  --apo-font-heading: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --apo-font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* etc. pour paire 3... */
+/* Thème 2 : recrutement (accent magenta) */
+.apo-theme-2 {
+  --apo-color-primary: var(--wp--preset--color--bg-brand, #00619B);
+  --apo-color-primary-soft: var(--wp--preset--color--bg-brand-subtle, #e6f0f7);
+  --apo-color-accent: var(--wp--preset--color--bg-accent-magenta, #CC209C);
+  --apo-color-highlight: var(--wp--preset--color--bg-accent-yellow, #FFC52F);
+}
+
+/* Thème 3 : commercial (accent orange) */
+.apo-theme-3 {
+  --apo-color-primary: var(--wp--preset--color--bg-brand, #00619B);
+  --apo-color-primary-soft: var(--wp--preset--color--bg-brand-subtle, #e6f0f7);
+  --apo-color-accent: var(--wp--preset--color--bg-accent-orange, #FF841F);
+  --apo-color-highlight: var(--wp--preset--color--bg-accent-cyan, #01C8D8);
+}
+
+/* Tabs Apogei : dans pages Tous etablissements et pages Pôles */
+.apogei-tabs, .pole-tabs {
+  margin-top: var(--wp--preset--spacing--20);
+}
+.apogei-tabs__list, .pole-tabs__list {
+  display: flex;
+  gap: var(--wp--preset--spacing--20);
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+.apogei-tabs__tab, .pole-tabs__tab {
+  position: relative;
+  padding: var(--apo-space-s) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: var(--apo-color-text-secondary);
+  transition: color var(--apo-duration-fast) ease;
+}
+.apogei-tabs__tab::after, .pole-tabs__tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15rem;
+  width: 0;
+  height: 2px;
+  background-color: var(--apo-color-primary);
+  transition: width var(--apo-duration-normal) ease;
+}
+.apogei-tabs__tab:focus, .pole-tabs__tab:focus {
+  outline: none;
+}
+.apogei-tabs__tab:focus-visible, .pole-tabs__tab:focus-visible {
+  outline: 2px solid var(--wp--preset--color--border-focus);
+  outline-offset: 2px;
+}
+.apogei-tabs__tab:hover, .apogei-tabs__tab:focus-visible, .pole-tabs__tab:hover, .pole-tabs__tab:focus-visible {
+  color: var(--apo-color-primary);
+}
+.apogei-tabs__tab.is-active, .pole-tabs__tab.is-active {
+  color: var(--apo-color-primary);
+}
+.apogei-tabs__tab.is-active::after, .pole-tabs__tab.is-active::after {
+  width: 100%;
+}
+.apogei-tabs__panel, .pole-tabs__panel {
+  /* layout géré par le contenu interne */
+  /* layout géré par le contenu interne */
+  display: none;
+}
+.apogei-tabs__panel.is-active, .pole-tabs__panel.is-active {
+  display: block;
+}
+
+/* Variantes Tabs Apogei (classes ajoutées dans l’éditeur) */
+.pole-tabs--pills .pole-tabs__tab,
+.pole-tabs--pills .apogei-tabs__tab,
+.apogei-tabs--pills .pole-tabs__tab,
+.apogei-tabs--pills .apogei-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--apo-space-xs);
+  padding: var(--apo-space-xs) var(--apo-space-l);
+  border-radius: var(--apo-radius-lg);
+  border: 1px solid transparent;
+}
+.pole-tabs--pills .pole-tabs__tab::after,
+.pole-tabs--pills .apogei-tabs__tab::after,
+.apogei-tabs--pills .pole-tabs__tab::after,
+.apogei-tabs--pills .apogei-tabs__tab::after {
+  display: none;
+}
+.pole-tabs--pills .pole-tabs__tab.is-active,
+.pole-tabs--pills .apogei-tabs__tab.is-active,
+.apogei-tabs--pills .pole-tabs__tab.is-active,
+.apogei-tabs--pills .apogei-tabs__tab.is-active {
+  background-color: var(--apo-color-primary-soft);
+  border-color: var(--apo-color-primary);
+  background: var(--wp--preset--color--bg-brand-subtle);
+}
+
+.pole-tabs__tab.has-icon,
+.apogei-tabs__tab.has-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--apo-space-xs);
+}
+
+/* Accordéons Apogei */
+.apogei-accordion {
+  border-top: 1px solid var(--wp--preset--color--border-default, #ccc);
+}
+.apogei-accordion__item + .apogei-accordion__item {
+  border-top: 1px solid var(--wp--preset--color--border-default, #ccc);
+}
+.apogei-accordion__button {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.apogei-accordion__button::after {
+  content: "+";
+  margin-left: 1rem;
+  transition: transform 0.2s ease;
+}
+.apogei-accordion__button[aria-expanded=true]::after {
+  content: "–";
+}
+.apogei-accordion__button:focus {
+  outline: none;
+}
+.apogei-accordion__button:focus-visible {
+  outline: 2px solid var(--wp--preset--color--border-focus);
+  outline-offset: 2px;
+}
+.apogei-accordion__panel {
+  padding: 0 1rem 1rem;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 1s ease, opacity 1s ease;
+}
+.apogei-accordion__panel.is-open {
+  opacity: 1;
+}
+.apogei-accordion__panel[hidden] {
+  /* optionnel : visibility:hidden; */
+}
+
+/* Réduction des animations si prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .apogei-accordion__panel {
+    transition: none;
+  }
+}
+/* ===========================
+   Buttons (Apogei)
+   =========================== */
+.apogei-button-outline .wp-block-button__link {
+  background: transparent;
+  color: var(--wp--preset--color--text-default);
+  border: 1px solid var(--wp--preset--color--border-strong);
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .apogei-button-outline .wp-block-button__link:hover {
+    background: var(--wp--preset--color--bg-subtle);
+    color: var(--wp--preset--color--text-default);
+    border-color: var(--wp--preset--color--border-strong);
+  }
+}
+.apogei-button-outline .wp-block-button__link:focus,
+.apogei-button-outline .wp-block-button__link:focus-visible {
+  background: var(--wp--preset--color--bg-subtle);
+  color: var(--wp--preset--color--text-default);
+  border-color: var(--wp--preset--color--border-strong);
+  outline: 2px solid var(--wp--preset--color--border-focus);
+  outline-offset: 2px;
+}
+
+/* Gutenberg styles (core/button) */
+:root {
+  --apogei-button-radius: var(--apogei--radius--md);
+  --apogei-button-font-weight: 600;
+  --apogei-button-padding-x: var(--apogei--space--sm);
+  --apogei-button-padding-y: var(--apogei--space--xs);
+  --apogei-button-icon-gap: var(--apogei--space--2xs);
+  /* Component tokens: component.button.primary */
+  --apogei-button-primary-bg: var(--wp--preset--color--bg-brand);
+  --apogei-button-primary-bg-hover: var(--wp--preset--color--interactive-hover);
+  --apogei-button-primary-bg-active: var(--wp--preset--color--interactive-active);
+  --apogei-button-primary-bg-disabled: var(--wp--preset--color--bg-muted);
+  --apogei-button-primary-text: var(--wp--preset--color--text-inverse);
+  --apogei-button-primary-text-disabled: var(--wp--preset--color--text-muted);
+  --apogei-button-primary-border: var(--wp--preset--color--bg-brand);
+  --apogei-button-primary-border-hover: var(--wp--preset--color--interactive-hover);
+  --apogei-button-primary-border-focus: var(--wp--preset--color--border-focus);
+  /* Component tokens: component.button.outline */
+  --apogei-button-outline-bg: transparent;
+  --apogei-button-outline-bg-hover: var(--wp--preset--color--bg-brand-subtle);
+  --apogei-button-outline-text: var(--wp--preset--color--text-brand);
+  --apogei-button-outline-text-hover: var(--wp--preset--color--text-brand-hover);
+  --apogei-button-outline-border: var(--wp--preset--color--border-brand);
+  /* Component tokens: component.button.ghost (transparent) */
+  --apogei-button-ghost-bg: transparent;
+  --apogei-button-ghost-bg-hover: var(--wp--preset--color--bg-subtle);
+  --apogei-button-ghost-text: var(--wp--preset--color--text-default);
+  --apogei-button-ghost-text-hover: var(--wp--preset--color--text-brand);
+  /* Component tokens: component.button.secondary (accent-green) */
+  --apogei-button-accent-green-bg: var(--wp--preset--color--bg-accent-green-light);
+  --apogei-button-accent-green-bg-hover: var(--wp--preset--color--bg-accent-green-light);
+  --apogei-button-accent-green-bg-disabled: var(--wp--preset--color--bg-muted);
+  --apogei-button-accent-green-text: var(--wp--preset--color--text-brand);
+  --apogei-button-accent-green-text-disabled: var(--wp--preset--color--text-muted);
+  --apogei-button-accent-green-border: var(--wp--preset--color--bg-accent-green);
+  /* Component tokens: component.button.outline-accent (framboise) */
+  --apogei-button-outline-accent-bg: transparent;
+  --apogei-button-outline-accent-bg-hover: var(--wp--preset--color--bg-accent-magenta-subtle);
+  --apogei-button-outline-accent-text: var(--wp--preset--color--bg-accent-magenta);
+  --apogei-button-outline-accent-text-hover: #73014a;
+  --apogei-button-outline-accent-border: var(--wp--preset--color--bg-accent-magenta);
+  --apogei-button-outline-accent-border-hover: #73014a;
+}
+
+.wp-block-button.is-style-apogei-primary .wp-block-button__link,
+.wp-block-button.is-style-apogei-outline .wp-block-button__link,
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link,
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link,
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link {
+  border-radius: var(--apogei-button-radius);
+  border-style: solid;
+  border-width: 1px;
+  font-weight: var(--apogei-button-font-weight);
+  padding: var(--apogei-button-padding-y) var(--apogei-button-padding-x);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--apogei-button-icon-gap);
+}
+
+.wp-block-button__link iconify-icon {
+  font-size: 1em;
+}
+
+.wp-block-button.is-style-apogei-primary .wp-block-button__link {
+  background: var(--apogei-button-primary-bg);
+  color: var(--apogei-button-primary-text);
+  border-color: var(--apogei-button-primary-border);
+}
+
+.wp-block-button.is-style-apogei-outline .wp-block-button__link,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link {
+  background: var(--apogei-button-outline-bg);
+  color: var(--apogei-button-outline-text);
+  border-color: var(--apogei-button-outline-border);
+}
+
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link {
+  background: var(--apogei-button-ghost-bg);
+  color: var(--apogei-button-ghost-text);
+  border-color: transparent;
+}
+
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link {
+  background: var(--apogei-button-accent-green-bg);
+  color: var(--apogei-button-accent-green-text);
+  border-color: var(--apogei-button-accent-green-border);
+}
+
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link {
+  background: var(--apogei-button-outline-accent-bg);
+  color: var(--apogei-button-outline-accent-text);
+  border-color: var(--apogei-button-outline-accent-border);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wp-block-button.is-style-apogei-primary .wp-block-button__link:hover {
+    background: var(--apogei-button-primary-bg-hover);
+    color: var(--apogei-button-primary-text);
+    border-color: var(--apogei-button-primary-border-hover);
+  }
+  .wp-block-button.is-style-apogei-outline .wp-block-button__link:hover,
+  .wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link:hover {
+    background: var(--apogei-button-outline-bg-hover);
+    color: var(--apogei-button-outline-text-hover);
+    border-color: var(--apogei-button-outline-border);
+  }
+  .wp-block-button.is-style-apogei-transparent .wp-block-button__link:hover {
+    background: var(--apogei-button-ghost-bg-hover);
+    color: var(--apogei-button-ghost-text-hover);
+  }
+  .wp-block-button.is-style-apogei-accent-green .wp-block-button__link:hover {
+    background: var(--apogei-button-accent-green-bg-hover);
+    color: var(--apogei-button-accent-green-text);
+  }
+  .wp-block-button.is-style-apogei-outline-accent .wp-block-button__link:hover {
+    background: var(--apogei-button-outline-accent-bg-hover);
+    color: var(--apogei-button-outline-accent-text-hover);
+    border-color: var(--apogei-button-outline-accent-border-hover);
+  }
+}
+.wp-block-button.is-style-apogei-primary .wp-block-button__link:focus,
+.wp-block-button.is-style-apogei-primary .wp-block-button__link:focus-visible,
+.wp-block-button.is-style-apogei-outline .wp-block-button__link:focus,
+.wp-block-button.is-style-apogei-outline .wp-block-button__link:focus-visible,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link:focus,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link:focus-visible,
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link:focus,
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link:focus-visible,
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link:focus,
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link:focus-visible,
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link:focus,
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link:focus-visible {
+  outline: 2px solid var(--apogei-button-primary-border-focus);
+  outline-offset: 2px;
+}
+
+.wp-block-button.is-style-apogei-primary .wp-block-button__link:active {
+  background: var(--apogei-button-primary-bg-active);
+  color: var(--apogei-button-primary-text);
+}
+
+.wp-block-button.is-style-apogei-primary .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-primary .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-primary .wp-block-button__link:disabled,
+.wp-block-button.is-style-apogei-outline .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-outline .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-outline .wp-block-button__link:disabled,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link:disabled,
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link:disabled,
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link:disabled,
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.wp-block-button.is-style-apogei-primary .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-primary .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-primary .wp-block-button__link:disabled {
+  background: var(--apogei-button-primary-bg-disabled);
+  color: var(--apogei-button-primary-text-disabled);
+  border-color: var(--apogei-button-primary-bg-disabled);
+}
+
+.wp-block-button.is-style-apogei-outline .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-outline .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-outline .wp-block-button__link:disabled,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-xl-outline-primary .wp-block-button__link:disabled {
+  background: var(--apogei-button-primary-bg-disabled);
+  color: var(--apogei-button-primary-text-disabled);
+  border-color: var(--wp--preset--color--border-muted);
+}
+
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-transparent .wp-block-button__link:disabled {
+  background: transparent;
+  color: var(--apogei-button-primary-text-disabled);
+  border-color: transparent;
+}
+
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-accent-green .wp-block-button__link:disabled {
+  background: var(--apogei-button-accent-green-bg-disabled);
+  color: var(--apogei-button-accent-green-text-disabled);
+  border-color: var(--apogei-button-accent-green-bg-disabled);
+}
+
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link[aria-disabled=true],
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link.is-disabled,
+.wp-block-button.is-style-apogei-outline-accent .wp-block-button__link:disabled {
+  background: var(--apogei-button-primary-bg-disabled);
+  color: var(--apogei-button-primary-text-disabled);
+  border-color: var(--wp--preset--color--border-muted);
+}
+
+.apogei-icon,
+iconify-icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  color: currentColor;
+  flex-shrink: 0;
+  vertical-align: -0.125em;
+}
+
+.apogei-icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* Cards Pôles Apogei */
+.apogei-pole__cards {
+  display: grid;
+  gap: var(--apo-space-m);
+}
+@media (min-width: 768px) {
+  .apogei-pole__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.apogei-card-etablissement {
+  border: 1px solid var(--wp--preset--color--border-default);
+  border-radius: var(--apo-radius-sm);
+  background: var(--wp--preset--color--bg-surface);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  max-height: 420px;
+  --card-image-height: 150px;
+  position: relative;
+  --card-footer-height: 59px;
+  --card-footer-padding: 24px;
+  --card-content-padding-top: 24px;
+  /* Optionnel : petit spacing interne générique */
+}
+.apogei-card-etablissement__image-link {
+  display: block;
+  height: var(--card-image-height);
+  max-height: var(--card-image-height);
+  overflow: hidden;
+  transition: max-height 240ms ease, opacity 240ms ease, transform 240ms ease;
+}
+.apogei-card-etablissement__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.apogei-card-etablissement__content {
+  padding: var(--card-content-padding-top) 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding-bottom: calc(var(--card-footer-height) + var(--card-footer-padding));
+  transition: padding-top 240ms ease;
+}
+.apogei-card-etablissement__content h3 {
+  font-family: var(--wp--preset--font-family--heading);
+  line-height: 1.1;
+  color: var(--wp--preset--color--text-default);
+  margin: 10px 0 4px;
+  font-size: var(--wp--preset--font-size--h4);
+  font-weight: 500;
+}
+.apogei-card-etablissement__excerpt {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-4px);
+  transition: max-height 240ms ease, opacity 240ms ease, transform 240ms ease;
+}
+.apogei-card-etablissement__meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+  transition: max-height 240ms ease, opacity 240ms ease, transform 240ms ease;
+}
+.apogei-card-etablissement__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--wp--preset--font-size--body);
+  line-height: 1.45;
+  color: var(--wp--preset--color--text-secondary);
+}
+.apogei-card-etablissement__meta-item .apogei-icon {
+  font-size: var(--wp--preset--font-size--body-sm);
+  line-height: 1;
+  color: var(--wp--preset--color--text-secondary);
+}
+.apogei-card-etablissement__footer {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 100%;
+  position: absolute;
+  right: var(--card-footer-padding);
+  bottom: var(--card-footer-padding);
+  width: auto;
+  padding-top: 0;
+}
+.apogei-card-etablissement__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid var(--wp--preset--color--border-strong);
+  border-radius: var(--apo-radius-sm);
+  font-size: var(--wp--preset--font-size--body-sm);
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--wp--preset--color--text-default);
+  text-decoration: none;
+}
+.apogei-card-etablissement__cta:focus-visible {
+  outline: 2px solid var(--wp--preset--color--border-focus);
+  outline-offset: 2px;
+}
+.apogei-card-etablissement__content p {
+  font-size: var(--wp--preset--font-size--body);
+  line-height: 1.55;
+  color: var(--wp--preset--color--text-secondary);
+}
+@media (hover: hover) and (pointer: fine) {
+  .apogei-card-etablissement--has-excerpt:hover .apogei-card-etablissement__image-link, .apogei-card-etablissement--has-excerpt:focus-within .apogei-card-etablissement__image-link {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  .apogei-card-etablissement--has-excerpt:hover .apogei-card-etablissement__excerpt, .apogei-card-etablissement--has-excerpt:focus-within .apogei-card-etablissement__excerpt {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .apogei-card-etablissement--has-excerpt:hover .apogei-card-etablissement__meta, .apogei-card-etablissement--has-excerpt:focus-within .apogei-card-etablissement__meta {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+    overflow: hidden;
+  }
+  .apogei-card-etablissement--has-excerpt:hover .apogei-card-etablissement__content, .apogei-card-etablissement--has-excerpt:focus-within .apogei-card-etablissement__content {
+    --card-content-padding-top: 3rem;
+  }
+}
+.apogei-card-etablissement__content > * + * {
+  margin-top: var(--apo-space-xs);
+}
+
+/* === Desktop : méga menu primary (≥ 1200px) === */
+/* Sauvegarde : _legacy/_menu-mega.scss.bak */
+@media (min-width: 1200px) {
+  .mega-menu-wrapper-eva {
+    background-image: linear-gradient(to right, var(--wp--preset--color--bg-accent-green, #76b82a) 50%, var(--wp--preset--color--bg-brand, #00619B) 50%);
+  }
+  #mega-menu-wrap-primary {
+    background: transparent;
+  }
+  #mega-menu-wrap-primary #mega-menu-primary.mega-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    background: transparent;
+  }
+  /* Découvrir 50 % vert */
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-decouvrir {
+    flex: 0 0 50%;
+    max-width: 50%;
+    background-color: var(--wp--preset--color--bg-accent-green, #76b82a);
+  }
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-decouvrir > a.mega-menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+    white-space: nowrap;
+    color: var(--wp--preset--color--text-default, #111111);
+    background-color: transparent;
+  }
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-decouvrir > a.mega-menu-link:hover,
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-decouvrir > a.mega-menu-link:focus {
+    background-color: var(--wp--preset--color--bg-accent-green, #76b82a);
+    color: var(--wp--preset--color--text-default, #111111);
+  }
+  /* Panneau Découvrir : vert */
+  #mega-menu-wrap-primary li.mega-menu-item-decouvrir > ul.mega-sub-menu {
+    width: 100%;
+    max-width: none;
+    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    background-color: var(--wp--preset--color--bg-accent-green, #76b82a) !important;
+    color: var(--wp--preset--color--text-default, #111111);
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-decouvrir > ul.mega-sub-menu a.mega-menu-link {
+    color: var(--wp--preset--color--text-default, #111111) !important;
+    background-color: transparent;
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-decouvrir > ul.mega-sub-menu a.mega-menu-link:hover,
+  #mega-menu-wrap-primary li.mega-menu-item-decouvrir > ul.mega-sub-menu a.mega-menu-link:focus {
+    color: var(--wp--preset--color--text-default, #111111) !important;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  /* Agir 50 % bleu */
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-agir {
+    flex: 0 0 50%;
+    max-width: 50%;
+    background-color: var(--wp--preset--color--bg-brand, #00619B);
+  }
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-agir > a.mega-menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+    white-space: nowrap;
+    color: var(--wp--preset--color--text-inverse, #ffffff);
+    background-color: transparent;
+  }
+  /* Pas de gris foncé au hover pour Agir */
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-agir > a.mega-menu-link:hover,
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-agir > a.mega-menu-link:focus {
+    background-color: var(--wp--preset--color--bg-brand, #00619B);
+    color: var(--wp--preset--color--text-inverse, #ffffff) !important;
+  }
+  /* Panneau Agir : bleu */
+  #mega-menu-wrap-primary li.mega-menu-item-agir > ul.mega-sub-menu {
+    width: 100%;
+    max-width: none;
+    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    background-color: var(--wp--preset--color--bg-brand, #00619B) !important;
+    color: var(--wp--preset--color--text-inverse, #ffffff) !important;
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-agir > ul.mega-sub-menu a.mega-menu-link {
+    color: var(--wp--preset--color--text-inverse, #ffffff) !important;
+    background-color: transparent;
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-agir > ul.mega-sub-menu a.mega-menu-link:hover,
+  #mega-menu-wrap-primary li.mega-menu-item-agir > ul.mega-sub-menu a.mega-menu-link:focus {
+    color: #ffffff !important;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  /* Neutraliser d'éventuels autres items de niveau 1 */
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item:not(.mega-menu-item-decouvrir):not(.mega-menu-item-agir) {
+    background: transparent;
+  }
+  /* Forcer le texte Agir en blanc dans tous les états "repos" */
+  #mega-menu-wrap-primary #mega-menu-primary.mega-menu > li.mega-menu-item-agir.mega-menu-item > a.mega-menu-link,
+  #mega-menu-wrap-primary #mega-menu-primary.mega-menu > li.mega-menu-item-agir.mega-current-menu-item > a.mega-menu-link,
+  #mega-menu-wrap-primary #mega-menu-primary.mega-menu > li.mega-menu-item-agir.mega-current-menu-ancestor > a.mega-menu-link,
+  #mega-menu-wrap-primary #mega-menu-primary.mega-menu > li.mega-menu-item-agir.mega-toggle-on > a.mega-menu-link {
+    color: var(--wp--preset--color--text-inverse, #ffffff);
+  }
+}
+/* === Tablette / mobile : Max Mega Menu (≤ 1199px) === */
+@media (max-width: 1199px) {
+  /* 1. Barre toggle Max Mega Menu (celle de ton thème) */
+  #mega-menu-wrap-primary .mega-menu-toggle {
+    background-color: transparent; /* vert Découvrir */
+    color: var(--wp--preset--color--text-default, #111111);
+    border: none;
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #mega-menu-wrap-primary .mega-menu-toggle span,
+  #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-label {
+    color: inherit;
+  }
+  /* 2. Fond du panneau mobile (mobile_background_*) */
+  #mega-menu-wrap-primary .mega-menu {
+    background: transparent; /* on enlève le gris du thème */
+  }
+  /* 3. Découvrir : bande + panneau verts */
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-decouvrir {
+    background-color: var(--wp--preset--color--bg-accent-green, #76b82a);
+  }
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-decouvrir > a.mega-menu-link {
+    display: block;
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--10);
+    background-color: var(--wp--preset--color--bg-accent-green, #76b82a) !important;
+    color: var(--wp--preset--color--text-default, #111111);
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-decouvrir > ul.mega-sub-menu {
+    background-color: var(--wp--preset--color--bg-accent-green, #76b82a);
+    color: var(--wp--preset--color--text-default, #111111);
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+    box-shadow: none;
+    width: 100%;
+    max-width: none;
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-decouvrir > ul.mega-sub-menu a.mega-menu-link {
+    color: var(--wp--preset--color--text-default, #111111);
+    background: transparent;
+  }
+  /* 4. Agir : bande + panneau bleus */
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-agir {
+    background-color: var(--wp--preset--color--bg-brand, #00619B);
+  }
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-agir > a.mega-menu-link {
+    display: block;
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--10);
+    background-color: var(--wp--preset--color--bg-brand, #00619B) !important;
+    color: var(--wp--preset--color--text-inverse, #ffffff) !important;
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-agir > ul.mega-sub-menu {
+    background-color: var(--wp--preset--color--bg-brand, #00619B);
+    color: var(--wp--preset--color--text-inverse, #ffffff) !important;
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+    box-shadow: none;
+    width: 100%;
+    max-width: none;
+  }
+  #mega-menu-wrap-primary li.mega-menu-item-agir > ul.mega-sub-menu a.mega-menu-link {
+    color: var(--wp--preset--color--text-inverse, #ffffff) !important;
+    background: transparent;
+  }
+  /* 5. Aucun autre item avec fond gris */
+  #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item:not(.mega-menu-item-decouvrir):not(.mega-menu-item-agir) {
+    background: transparent;
+  }
+  /* 6. Wrapper EVA sans gradient en mobile */
+  .mega-menu-wrapper-eva {
+    background-image: none;
+    background-color: transparent;
+  }
+  #mega-menu-wrap-primary .mega-menu-primary-off-canvas {
+    background-color: transparent; /* ou #76b82a/#00619b selon la zone */
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open + #mega-menu-primary {
+    background-color: transparent;
+  }
+}
+.apogei-header {
+  background-color: var(--wp--preset--color--bg-surface, #ffffff);
+  border-bottom: 1px solid var(--wp--preset--color--border-default, #e5e5e5);
+  position: sticky;
+  top: 0;
+  z-index: var(--apogei--z--sticky, 1100);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.apogei-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--wp--style--global--wide-size, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--wp--preset--spacing--20, 1.5rem);
+}
+@media (max-width: 64rem) {
+  .apogei-header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
+.apogei-header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.apogei-header__logo img {
+  height: 2.5em;
+  width: auto;
+  max-width: none;
+  display: block;
+}
+@media (max-width: 64rem) {
+  .apogei-header__logo {
+    grid-column: 2;
+    justify-self: center;
+  }
+}
+
+.apogei-header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3125rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--apogei--space--xs, 0.5rem);
+}
+@media (max-width: 64rem) {
+  .apogei-header__toggle {
+    display: flex;
+    grid-column: 1;
+    justify-self: start;
+  }
+}
+
+.apogei-header__toggle-bar {
+  display: block;
+  width: 1.375rem;
+  height: 0.125rem;
+  background-color: var(--wp--preset--color--text-default, #111111);
+  border-radius: var(--apogei--radius--full, 9999px);
+  transition: transform var(--apogei--duration--slow, 250ms) var(--apogei--easing--default, ease), opacity var(--apogei--duration--slow, 250ms) var(--apogei--easing--default, ease);
+}
+
+.apogei-header.is-menu-open .apogei-header__toggle-bar:nth-child(1) {
+  transform: translateY(0.4375rem) rotate(45deg);
+}
+.apogei-header.is-menu-open .apogei-header__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.apogei-header.is-menu-open .apogei-header__toggle-bar:nth-child(3) {
+  transform: translateY(-0.4375rem) rotate(-45deg);
+}
+
+@media (max-width: 64rem) {
+  .apogei-header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(20rem, 85vw);
+    height: 100vh;
+    height: 100dvh;
+    background-color: var(--wp--preset--color--bg-surface, #ffffff);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform var(--apogei--duration--slower, 350ms) var(--apogei--easing--default, ease), visibility 0s linear var(--apogei--duration--slower, 350ms);
+    z-index: var(--apogei--z--overlay, 1300);
+    padding: var(--apogei--space--lg, 1.5rem) var(--apogei--space--xl, 2rem) var(--apogei--space--xl, 2rem);
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .apogei-header__nav.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    box-shadow: var(--apogei--shadow--xl);
+    transition: transform var(--apogei--duration--slower, 350ms) var(--apogei--easing--default, ease), visibility 0s linear 0s;
+  }
+}
+
+.apogei-header__close {
+  display: none;
+}
+@media (max-width: 64rem) {
+  .apogei-header__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--wp--preset--color--text-default, #111111);
+    align-self: flex-end;
+    margin-bottom: var(--apogei--space--md, 1rem);
+    border-radius: var(--apogei--radius--md, 6px);
+    transition: background-color var(--apogei--duration--fast, 100ms) var(--apogei--easing--default, ease);
+  }
+  .apogei-header__close:hover {
+    background-color: var(--wp--preset--color--bg-subtle, #f3f3f3);
+  }
+}
+
+.apogei-header__links {
+  display: flex;
+  gap: var(--apogei--space--xl, 2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.apogei-header__links a {
+  font-weight: 600;
+  color: var(--wp--preset--color--text-default, #111111);
+  padding: var(--apogei--space--xs, 0.5rem) 0;
+  position: relative;
+  text-decoration: none;
+}
+.apogei-header__links a:hover, .apogei-header__links a[aria-current=page] {
+  color: var(--wp--preset--color--text-brand, #00619b);
+}
+.apogei-header__links a[aria-current=page]::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--wp--preset--color--border-brand, #00619b);
+  border-radius: var(--apogei--radius--full, 9999px);
+}
+@media (max-width: 64rem) {
+  .apogei-header__links {
+    flex-direction: column;
+    gap: 0;
+  }
+  .apogei-header__links li {
+    border-bottom: 1px solid var(--wp--preset--color--border-subtle, #f3f3f3);
+  }
+  .apogei-header__links a {
+    display: block;
+    padding: var(--apogei--space--md, 1rem) 0;
+    font-size: var(--wp--preset--font-size--body-lg, 1.125rem);
+  }
+  .apogei-header__links a[aria-current=page]::after {
+    display: none;
+  }
+}
+
+.apogei-header__nav-actions {
+  display: none;
+}
+@media (max-width: 64rem) {
+  .apogei-header__nav-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--apogei--space--sm, 0.75rem);
+    margin-top: auto;
+    padding-top: var(--apogei--space--xl, 2rem);
+  }
+  .apogei-header__nav-actions .wp-block-button__link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.apogei-header__actions {
+  display: flex;
+  gap: var(--apogei--space--sm, 0.75rem);
+}
+@media (max-width: 64rem) {
+  .apogei-header__actions {
+    grid-column: 3;
+    justify-self: end;
+  }
+  .apogei-header__actions .apogei-header__btn--outline {
+    display: none;
+  }
+}
+
+.apogei-header__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: calc(var(--apogei--z--overlay, 1300) - 1);
+  pointer-events: none;
+  transition: background-color var(--apogei--duration--slower, 350ms) var(--apogei--easing--default, ease);
+}
+.apogei-header.is-menu-open .apogei-header__overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apogei-header__nav,
+  .apogei-header__overlay,
+  .apogei-header__toggle-bar {
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Menu des filtres de pôles Apogei */
+.apogei-pole-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wp--preset--spacing--20);
+  justify-content: center;
+  padding: var(--wp--preset--spacing--10) 0;
+  /* Réinitialiser la liste du bloc Navigation */
+}
+.apogei-pole-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wp--preset--spacing--20);
+}
+.apogei-pole-menu {
+  /* Liens d'onglets */
+}
+.apogei-pole-menu a {
+  position: relative;
+  display: inline-block;
+  padding: var(--apo-space-xs) 0;
+  text-decoration: none;
+  /*color: var(--wp--preset--color--brand-blue-500);*/
+  color: var(--apo-color-primary);
+  /* Ligne de base (invisible) */
+}
+.apogei-pole-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15rem;
+  width: 0;
+  height: 2px;
+  /*background-color: var(--wp--preset--color--brand-blue-500);*/
+  background-color: var(--apo-color-primary);
+  transition: width var(--apo-duration-normal) ease;
+}
+.apogei-pole-menu a:focus {
+  outline: none;
+}
+.apogei-pole-menu a:focus-visible {
+  outline: 2px solid var(--wp--preset--color--border-focus);
+  outline-offset: 2px;
+}
+.apogei-pole-menu a {
+  /* Hover : prévisualisation de la ligne */
+}
+.apogei-pole-menu a:hover::after, .apogei-pole-menu a:focus-visible::after {
+  width: 100%;
+}
+.apogei-pole-menu {
+  /* Onglet actif (page courante) : texte plus fort + underline pleine largeur */
+}
+.apogei-pole-menu .current-menu-item > a,
+.apogei-pole-menu a[aria-current=page] {
+  font-weight: 600;
+  /*color: var(--wp--preset--color--brand-blue-500);*/
+  /*color: red;*/
+  color: var(--apo-color-primary);
+}
+.apogei-pole-menu .current-menu-item > a::after,
+.apogei-pole-menu a[aria-current=page]::after {
+  width: 100%;
+}
+
+/*
+.apogei-pole-menu a::after,
+.pole-tabs__tab::after {
+  background-color: red !important;
+}
+*/
+/**
+ * Hero fiche établissement / dispositif — "banner header etab"
+ * Composant Figma node 9-1093. Layout expert : grille, intro en chevauchement sur l'image.
+ * Réf. Perplexity + ishadeed.com (grid overlap), handoff.design (overlapping elements).
+ */
+.wp-block-template-part:has(.apogei-hero-fiche) {
+  margin-top: 0;
+}
+
+.apogei-hero-fiche {
+  overflow: visible;
+  padding-top: 0 !important;
+}
+.apogei-hero-fiche > .wp-block-columns {
+  display: grid;
+  grid-template-columns: 1fr minmax(50%, 1fr);
+  grid-template-rows: auto;
+  gap: var(--wp--preset--spacing--20, 1.5rem);
+  align-items: start;
+  width: 100%;
+  max-width: none;
+}
+@media (min-width: 48.875rem) {
+  .apogei-hero-fiche > .wp-block-columns {
+    grid-template-columns: 1fr 1.15fr;
+  }
+}
+.apogei-hero-fiche .wp-block-column {
+  min-width: 0;
+}
+.apogei-hero-fiche .apogei-hero-fiche__text {
+  position: relative;
+  z-index: 2;
+  grid-column: 1;
+  grid-row: 1;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.apogei-hero-fiche .apogei-hero-fiche__image {
+  position: relative;
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1;
+}
+.apogei-hero-fiche .apogei-hero-fiche__title-wrap {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: 0;
+  align-self: flex-end;
+  border-radius: 10px;
+  padding: 0.625rem 0.75rem !important;
+}
+.apogei-hero-fiche .apogei-hero-fiche__filet-subtitle-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  margin-top: var(--wp--preset--spacing--10, 1rem);
+  margin-bottom: var(--wp--preset--spacing--10, 1rem);
+}
+.apogei-hero-fiche .apogei-hero-fiche__filet {
+  flex: 0 0 55%;
+  min-width: 0;
+  margin: 0;
+  height: 2px;
+  min-height: 2px;
+  border: none;
+  padding: 0;
+  background-color: var(--wp--preset--color--bg-accent-green) !important;
+  opacity: 1;
+}
+.apogei-hero-fiche .apogei-hero-fiche__filet-subtitle-row .wp-block-apogei-hero-sous-titre,
+.apogei-hero-fiche .apogei-hero-fiche__filet-subtitle-row .apogei-hero-sous-titre {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 45%;
+  margin: 0;
+  padding-left: var(--wp--preset--spacing--20, 1.5rem);
+  text-align: right;
+  font-size: var(--wp--preset--font-size--h3);
+  color: var(--wp--preset--color--text-brand);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.apogei-hero-fiche .apogei-hero-introduction {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: min(42.125rem, 100%);
+  margin-left: 30%;
+  margin-right: -28%;
+  padding: 1rem 1.5em !important;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.78);
+  font-size: var(--wp--preset--font-size--body);
+  color: var(--wp--preset--color--text-brand);
+  line-height: 1.55;
+}
+.apogei-hero-fiche .apogei-hero-introduction p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: inherit;
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.apogei-hero-fiche .apogei-hero-introduction p:last-child {
+  margin-bottom: 0;
+}
+.apogei-hero-fiche .apogei-hero-introduction::selection,
+.apogei-hero-fiche .apogei-hero-introduction *::selection {
+  background: var(--wp--preset--color--bg-accent-green, #76b82a);
+  color: #fff;
+}
+.apogei-hero-fiche .apogei-hero-fiche__image .wp-block-post-featured-image,
+.apogei-hero-fiche .apogei-hero-fiche__image .wp-block-post-featured-image img,
+.apogei-hero-fiche .apogei-hero-fiche__image img {
+  border-radius: 0 !important;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 48.8125rem) {
+  .apogei-hero-fiche > .wp-block-columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .apogei-hero-fiche .apogei-hero-fiche__text {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0;
+  }
+  .apogei-hero-fiche .apogei-hero-fiche__filet-subtitle-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .apogei-hero-fiche .apogei-hero-fiche__filet {
+    flex: none;
+    width: 100%;
+  }
+  .apogei-hero-fiche .apogei-hero-fiche__filet-subtitle-row .wp-block-apogei-hero-sous-titre,
+  .apogei-hero-fiche .apogei-hero-fiche__filet-subtitle-row .apogei-hero-sous-titre {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    text-align: left;
+  }
+  .apogei-hero-fiche .apogei-hero-fiche__image {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .apogei-hero-fiche .apogei-hero-introduction {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem 1.5em !important;
+  }
+}
+
+/* =============================================================================
+   Nav secondaire fiche établissement / dispositif
+   Inspiré de .apogei-tabs--simple (morphologie, underline, typo)
+   Différences : fond component.nav.bg, underline actif VERT (maquette), badge Jobs
+   Pas de rôles ARIA tablist/tab — liens d'ancrage uniquement
+   ============================================================================= */
+.apogei-nav-secondaire-fiche {
+  /* component.nav.bg */
+  background-color: var(--wp--preset--color--bg-surface);
+  /* Alignement visuel avec .apogei-tabs : padding vertical */
+  padding: var(--apo-space-s) 0;
+  /* Réinitialiser la liste du bloc core/navigation */
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation__container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--wp--preset--spacing--20);
+}
+.apogei-nav-secondaire-fiche {
+  /* Items = liens, grammaire visuelle .apogei-tabs__tab */
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content {
+  position: relative;
+  display: inline-block;
+  padding: var(--apo-space-s) 0;
+  text-decoration: none;
+  /* component.tab.item.text.default */
+  color: var(--wp--preset--color--text-secondary);
+  font: inherit;
+  font-size: var(--wp--preset--font-size--body-sm);
+  transition: color var(--apo-duration-fast) ease;
+  /* Underline : même mécanique que tabs, mais VERT (maquette > token component.tab.indicator) */
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15rem;
+  width: 0;
+  height: 2px;
+  /* Maquette : vert accent. Token tab.indicator = bleu brand, ignoré ici. */
+  background-color: var(--wp--preset--color--bg-accent-green);
+  transition: width var(--apo-duration-normal) ease;
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content:focus {
+  outline: none;
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content:focus-visible {
+  outline: 2px solid var(--wp--preset--color--border-focus);
+  outline-offset: 2px;
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content:hover, .apogei-nav-secondaire-fiche .wp-block-navigation-item__content:focus-visible {
+  /* component.nav.item.text.hover */
+  color: var(--wp--preset--color--text-brand);
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content:hover::after, .apogei-nav-secondaire-fiche .wp-block-navigation-item__content:focus-visible::after {
+  width: 100%;
+}
+.apogei-nav-secondaire-fiche {
+  /* Item actif : component.tab.item.text.active + underline pleine largeur */
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content.is-active,
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content[aria-current=page],
+.apogei-nav-secondaire-fiche .current-menu-item .wp-block-navigation-item__content {
+  /* component.tab.item.text.active */
+  color: var(--wp--preset--color--text-brand);
+  font-weight: 600;
+}
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content.is-active::after,
+.apogei-nav-secondaire-fiche .wp-block-navigation-item__content[aria-current=page]::after,
+.apogei-nav-secondaire-fiche .current-menu-item .wp-block-navigation-item__content::after {
+  width: 100%;
+}
+.apogei-nav-secondaire-fiche {
+  /* Badge Jobs : vert accent (fond + contour) */
+}
+.apogei-nav-secondaire-fiche__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  margin-left: var(--apo-space-xs);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--wp--preset--color--text-inverse);
+  background-color: var(--wp--preset--color--bg-accent-green);
+  border: 1px solid var(--wp--preset--color--bg-accent-green);
+  border-radius: var(--apogei--radius--full);
+}
+.apogei-nav-secondaire-fiche {
+  /* Mobile : scroll horizontal */
+}
+@media (max-width: 48.8125rem) {
+  .apogei-nav-secondaire-fiche {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .apogei-nav-secondaire-fiche::-webkit-scrollbar {
+    display: none;
+  }
+  .apogei-nav-secondaire-fiche .wp-block-navigation__container {
+    flex-wrap: nowrap;
+    padding-bottom: var(--apo-space-xs);
+  }
+}
+
+/* Section masquée (tabs : une seule section visible à la fois) */
+.apogei-nav-secondaire-section--hidden {
+  display: none;
+}
+
+/* Modificateur sticky (optionnel) */
+.apogei-nav-secondaire-fiche--sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--apogei--z--sticky);
+}
+
+/* ===========================
+   CTA Offres (shortcode apogei_offre_cta)
+   Boutons : is-style-apogei-primary, is-style-apogei-outline-accent
+   Token espace : --apogei--space--sm
+   =========================== */
+.apogei-offre-cta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--apogei--space--sm);
+  margin-top: var(--wp--preset--spacing--30, 1rem);
+}
+.apogei-offre-cta > .wp-block-button {
+  flex-shrink: 0;
+}
+
+:root {
+  --apogei--radius--none: 0;
+  --apogei--radius--sm: 4px;
+  --apogei--radius--md: 6px;
+  --apogei--radius--lg: 8px;
+  --apogei--radius--xl: 16px;
+  --apogei--radius--full: 9999px;
+  --apogei--shadow--none: none;
+  --apogei--shadow--sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --apogei--shadow--md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --apogei--shadow--lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --apogei--shadow--xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --apogei--shadow--focus: 0 0 0 3px rgba(0, 97, 155, 0.4);
+  --apogei--shadow--focus-error: 0 0 0 3px rgba(239, 68, 68, 0.4);
+  --apogei--duration--instant: 0ms;
+  --apogei--duration--fast: 100ms;
+  --apogei--duration--normal: 150ms;
+  --apogei--duration--slow: 250ms;
+  --apogei--duration--slower: 350ms;
+  --apogei--easing--default: cubic-bezier(0.4, 0, 0.2, 1);
+  --apogei--easing--enter: cubic-bezier(0, 0, 0.2, 1);
+  --apogei--easing--exit: cubic-bezier(0.4, 0, 1, 1);
+  --apogei--z--base: 0;
+  --apogei--z--dropdown: 1000;
+  --apogei--z--sticky: 1100;
+  --apogei--z--overlay: 1300;
+  --apogei--z--modal: 1400;
+  --apogei--z--popover: 1500;
+  --apogei--z--tooltip: 1600;
+  --apogei--border-width--default: 1px;
+  --apogei--border-width--focus: 2px;
+  --apogei--border-width--strong: 4px;
+  --apogei--space--none: 0;
+  --apogei--space--3xs: 2px;
+  --apogei--space--2xs: 4px;
+  --apogei--space--xs: 8px;
+  --apogei--space--sm: 12px;
+  --apogei--space--md: 16px;
+  --apogei--space--lg: 24px;
+  --apogei--space--xl: 32px;
+  --apogei--space--2xl: 48px;
+  --apogei--space--3xl: 64px;
+  --apogei--space--4xl: 96px;
+  --apogei--space--5xl: 128px;
+  --apogei--space--6xl: 192px;
+}
+
+/*# sourceMappingURL=style.css.map */
